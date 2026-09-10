@@ -88,11 +88,14 @@ export function BeforeAfterSlider({
       {/* Comparison Frame */}
       <div
         ref={containerRef}
-        className={`relative w-full ${aspectClass} overflow-hidden rounded-xl select-none shadow-card cursor-ew-resize bg-covenant-navy/5 border border-covenant-border`}
+        className={`relative w-full ${aspectClass} overflow-hidden rounded-xl select-none shadow-card cursor-ew-resize bg-covenant-navy/5 border border-covenant-border touch-none`}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onMouseMove={handleMouseMove}
+        onTouchStart={(e) => {
+          if (e.touches.length > 0) handleMove(e.touches[0].clientX);
+        }}
         onTouchMove={handleTouchMove}
         role="region"
         aria-label="Before and After interactive comparison slider"

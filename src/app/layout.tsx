@@ -54,6 +54,15 @@ export const metadata: Metadata = {
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=85",
     ],
   },
+  icons: {
+    icon: [
+      { url: "/images/logo.png" },
+      { url: "/icon.png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   robots: {
     index: true,
     follow: true,

@@ -6,13 +6,13 @@ import { COMPANY_INFO } from "@/data/assets";
 
 export function Footer() {
   return (
-    <footer className="bg-covenant-navy text-white pt-16 pb-12 border-t border-covenant-navy-light/60">
+    <footer className="bg-covenant-navy text-white pt-16 pb-28 sm:pb-14 border-t border-covenant-navy-light/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Brand Statement Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-white/10">
           {/* Brand Column (5 cols) */}
-          <div className="lg:col-span-5 space-y-5">
-            <BrandLogo variant="dark" size="lg" />
+          <div className="lg:col-span-5 space-y-6">
+            <BrandLogo variant="dark" size="3cm" />
             <p className="text-sm text-gray-300 max-w-md font-light leading-relaxed">
               Quality craftsmanship for remodeling, construction, and painting projects. Designed around your home and built to endure with unwavering care and precision.
             </p>
@@ -155,14 +155,27 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Subtle Architectural Accent */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        {/* Bottom Bar: Copyright, CAMALY credit & Links */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 text-center md:text-left">
           <div>
             © {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.
           </div>
-          <div className="flex items-center gap-6">
-            <span className="text-gray-500">Residential Construction • Remodeling • Painting</span>
-            <Link href="/contact" className="text-covenant-gold hover:underline inline-flex items-center gap-1">
+
+          {/* Produzida com💚por CAMALY */}
+          <div className="flex items-center justify-center">
+            <a
+              href="https://camaly.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-gray-400 hover:text-covenant-gold transition-colors font-medium group"
+            >
+              <span>Produzida com💚por <strong className="font-bold text-gray-200 group-hover:text-covenant-gold transition-colors">CAMALY</strong></span>
+            </a>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <span className="text-gray-500 hidden sm:inline">Residential Construction • Remodeling • Painting</span>
+            <Link href="/contact" className="text-covenant-gold hover:underline inline-flex items-center gap-1 font-semibold">
               <span>Get An Estimate</span>
               <ArrowUpRight className="w-3 h-3" />
             </Link>

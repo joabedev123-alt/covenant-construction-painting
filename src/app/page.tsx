@@ -20,7 +20,35 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* Left Content (7 cols) */}
-            <div className="lg:col-span-7 space-y-7 text-left">
+            <div className="lg:col-span-7 space-y-6 text-left">
+              {/* Official Brand Logo in Hero (no mínimo 3cm = ~114px) */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-3.5 bg-covenant-offwhite/90 rounded-2xl border border-covenant-border/80 max-w-full sm:w-fit shadow-subtle">
+                <div
+                  className="relative shrink-0 rounded-full overflow-hidden shadow-sm bg-white"
+                  style={{ width: "3.2cm", height: "3.2cm", minWidth: "3cm", minHeight: "3cm" }}
+                >
+                  <Image
+                    src="/images/logo.png"
+                    alt="Covenant Construction & Painting Official Logo"
+                    fill
+                    priority
+                    className="object-contain p-0.5"
+                  />
+                </div>
+                <div className="pr-3 space-y-1">
+                  <div className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.24em] text-covenant-gold-dark uppercase">
+                    <span className="w-5 h-px bg-covenant-gold" />
+                    <span>COVENANT CONSTRUCTION & PAINTING</span>
+                  </div>
+                  <div className="font-serif text-base sm:text-lg font-bold text-covenant-navy leading-tight">
+                    Built With Purpose • Finished With Excellence
+                  </div>
+                  <p className="text-xs text-covenant-muted font-medium">
+                    Licensed & Insured Residential Craftsmanship
+                  </p>
+                </div>
+              </div>
+
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.22em] text-covenant-gold-dark uppercase">
                 <span className="w-6 h-px bg-covenant-gold" />
