@@ -137,13 +137,13 @@ export default function KitchenRemodelingPage() {
 
           <div className="bg-white p-4 sm:p-6 rounded-2xl border border-covenant-border shadow-card">
             <BeforeAfterSlider
-              beforeImage="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1400&q=80"
-              afterImage={SITE_ASSETS.kitchenHero.url}
+              beforeImage={SITE_ASSETS.kitchenBefore.url}
+              afterImage={SITE_ASSETS.kitchenAfter.url}
               beforeAlt="Dated kitchen before renovation"
               afterAlt="Completed gourmet kitchen after renovation"
               title="Transitional Gourmet Kitchen Transformation"
               category="KITCHEN BEFORE & AFTER"
-              aspectRatio="16/9"
+              aspectRatio="4/3"
             />
           </div>
         </div>

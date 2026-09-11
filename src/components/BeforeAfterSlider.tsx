@@ -5,8 +5,9 @@ import Image from "next/image";
 import { MoveHorizontal } from "lucide-react";
 
 interface BeforeAfterSliderProps {
-  beforeImage: string;
-  afterImage: string;
+  beforeImage?: string;
+  afterImage?: string;
+  singleImage?: string;
   beforeAlt?: string;
   afterAlt?: string;
   title?: string;
@@ -18,6 +19,7 @@ interface BeforeAfterSliderProps {
 export function BeforeAfterSlider({
   beforeImage,
   afterImage,
+  singleImage,
   beforeAlt = "Before renovation",
   afterAlt = "After renovation",
   title,
@@ -67,6 +69,47 @@ export function BeforeAfterSlider({
     "custom": "h-[460px] sm:h-[560px]",
   }[aspectRatio];
 
+  if (singleImage) {
+    return (
+      <div className={`space-y-3 ${className}`}>
+        {(title || category) && (
+          <div className="flex items-baseline justify-between gap-4 px-1">
+            {title && (
+              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-covenant-navy">
+                {title}
+              </h3>
+            )}
+            {category && (
+              <span className="text-xs font-bold tracking-widest text-covenant-gold-dark uppercase">
+                {category}
+              </span>
+            )}
+          </div>
+        )}
+
+        <div
+          className={`relative w-full ${aspectClass} overflow-hidden rounded-xl shadow-card bg-covenant-navy/5 border border-covenant-border group`}
+        >
+          <Image
+            src={singleImage}
+            alt={title || "Before and After comparison"}
+            fill
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            className="object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
+            priority
+          />
+        </div>
+      </div>
+    );
+  }
+
+  const finalBefore = beforeImage || singleImage || "";
+  const finalAfter = afterImage || singleImage || "";
+
+  if (!finalBefore || !finalAfter) {
+    return null;
+  }
+
   return (
     <div className={`space-y-3 ${className}`}>
       {/* Optional Title & Category Header */}
@@ -103,7 +146,7 @@ export function BeforeAfterSlider({
         {/* AFTER Image (Full Background) */}
         <div className="absolute inset-0 w-full h-full pointer-events-none">
           <Image
-            src={afterImage}
+            src={finalAfter}
             alt={afterAlt}
             fill
             sizes="(max-width: 1200px) 100vw, 1200px"
@@ -124,7 +167,7 @@ export function BeforeAfterSlider({
           }}
         >
           <Image
-            src={beforeImage}
+            src={finalBefore}
             alt={beforeAlt}
             fill
             sizes="(max-width: 1200px) 100vw, 1200px"
@@ -143,7 +186,7 @@ export function BeforeAfterSlider({
           style={{ left: `${sliderPosition}%` }}
         >
           {/* Center Handle */}
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-covenant-navy border-2 border-covenant-gold text-white shadow-elevated flex items-center justify-center pointer-events-auto cursor-grab active:cursor-grabbing hover:scale-110 transition-transform">
+          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-covenant-navy border-2 border-covenant-gold text-white shadow-elevated flex items-center justify-center pointer-events-auto cursor-grab active:cursor-grabbing hover:scale-110 active:scale-95 transition-transform touch-manipulation">
             <MoveHorizontal className="w-4 h-4 text-covenant-gold" />
           </div>
         </div>

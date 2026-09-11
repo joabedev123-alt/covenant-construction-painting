@@ -169,7 +169,7 @@ export default function ContactPage() {
                           placeholder="Jane Doe"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors"
+                          className="w-full text-base sm:text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors"
                         />
                       </div>
 
@@ -183,7 +183,7 @@ export default function ContactPage() {
                           placeholder="(508) 000-0000"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors"
+                          className="w-full text-base sm:text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors"
                         />
                       </div>
                     </div>
@@ -198,7 +198,7 @@ export default function ContactPage() {
                         placeholder="jane@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors"
+                        className="w-full text-base sm:text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors"
                       />
                     </div>
 
@@ -209,7 +209,7 @@ export default function ContactPage() {
                       <select
                         value={formData.projectType}
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                        className="w-full text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors cursor-pointer"
+                        className="w-full text-base sm:text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors cursor-pointer"
                       >
                         <option value="Kitchen Remodeling">Kitchen Remodeling</option>
                         <option value="Bathroom Remodeling">Bathroom Remodeling</option>
@@ -227,7 +227,7 @@ export default function ContactPage() {
                         placeholder="Tell us a little about your space, goals, or ideal timing..."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors resize-none"
+                        className="w-full text-base sm:text-sm px-4 py-3 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/50 transition-colors resize-none"
                       />
                     </div>
 

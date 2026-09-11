@@ -46,8 +46,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Image (6 cols) */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative aspect-[4/3] sm:aspect-[1/1] rounded-2xl overflow-hidden shadow-elevated border border-covenant-border bg-covenant-navy/5">
+            <div className="lg:col-span-6 space-y-4">
+              <div className="relative aspect-[3/2] w-full rounded-2xl overflow-hidden shadow-elevated border border-covenant-border bg-covenant-navy/5">
                 <Image
                   src={SITE_ASSETS.heroAbout.url}
                   alt="Craftsmanship and care in residential construction"
@@ -57,8 +57,8 @@ export default function AboutPage() {
                 />
               </div>
 
-              {/* Floating Architectural Card */}
-              <div className="absolute -bottom-6 -right-6 hidden sm:block bg-covenant-navy text-white p-6 rounded-xl shadow-card border border-covenant-gold/30 max-w-xs text-left">
+              {/* Architectural Promise Card */}
+              <div className="bg-covenant-navy text-white p-5 sm:p-6 rounded-xl shadow-card border border-covenant-gold/30 text-left">
                 <div className="text-xs font-bold tracking-widest text-covenant-gold uppercase mb-1">
                   Our Promise
                 </div>

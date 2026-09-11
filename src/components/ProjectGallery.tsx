@@ -131,14 +131,14 @@ export function ProjectGallery({
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-elevated border border-covenant-border p-6 sm:p-8 space-y-6 relative"
+            className="bg-white w-full max-w-3xl max-h-[90dvh] overflow-y-auto rounded-2xl shadow-elevated border border-covenant-border p-4 sm:p-8 space-y-5 sm:space-y-6 relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               type="button"
               onClick={() => setSelectedProject(null)}
-              className="absolute top-5 right-5 w-9 h-9 rounded-full bg-covenant-offwhite hover:bg-covenant-border/60 text-covenant-navy flex items-center justify-center cursor-pointer transition-colors"
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 w-10 h-10 sm:w-9 sm:h-9 rounded-full bg-covenant-offwhite hover:bg-covenant-border/60 text-covenant-navy flex items-center justify-center cursor-pointer transition-colors shadow-sm"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />

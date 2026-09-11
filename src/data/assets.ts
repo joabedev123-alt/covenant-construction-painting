@@ -49,22 +49,32 @@ export const SITE_ASSETS = {
   // Hero Photography (High-end realistic American residential renovation)
   heroMain: {
     id: "hero-residential-remodel",
-    title: "Editorial Residential Living & Exterior Remodel",
+    title: "Covenant Transformations — Before & After Showcase",
     category: "improvement" as const,
-    url: "/images/hero-main.jpeg",
-    alt: "Residential exterior and patio renovation by Covenant Construction & Painting",
+    url: "/images/fotos/WhatsApp Image 2026-09-08 at 14.06.04 (1).jpeg",
+    alt: "Transformações residenciais Antes e Depois por Covenant Construction & Painting",
     isPlaceholder: false,
-    notes: "WhatsApp Image 2026-09-08 at 14.05.46 (2)",
+    notes: "WhatsApp Image 2026-09-08 at 14.06.04 (1)",
   },
 
   heroAbout: {
     id: "hero-about-craftsmanship",
     title: "Architectural Detailing & Craftsmanship",
     category: "about" as const,
-    url: "/images/finishing-detail.jpeg",
-    alt: "Detalhes de acabamento e pavimentação em reformas residenciais",
+    url: "/images/fotos/WhatsApp Image 2026-09-08 at 14.06.04.jpeg",
+    alt: "The Covenant Standard - Transformação residencial e restauração",
     isPlaceholder: false,
-    notes: "WhatsApp Image 2026-09-08 at 14.05.45 (1)",
+    notes: "WhatsApp Image 2026-09-08 at 14.06.04",
+  },
+
+  covenantStandard: {
+    id: "covenant-standard-quality",
+    title: "The Covenant Standard — Exterior Transformation",
+    category: "improvement" as const,
+    url: "/images/fotos/WhatsApp Image 2026-09-08 at 14.06.04.jpeg",
+    alt: "The Covenant Standard - Mais do que uma reforma, um compromisso com a qualidade",
+    isPlaceholder: false,
+    notes: "WhatsApp Image 2026-09-08 at 14.06.04",
   },
 
   heroServices: {
@@ -81,20 +91,40 @@ export const SITE_ASSETS = {
     id: "service-kitchen-hero",
     title: "Custom Kitchen Cabinetry & Stone Countertops",
     category: "kitchen" as const,
-    url: "/images/kitchen-remodel.jpeg",
-    alt: "Reforma de cozinha com armários planejados e bancada",
+    url: "/images/cozinha pintada.jpeg",
+    alt: "Reforma de cozinha com armários planejados e pintura",
+    isPlaceholder: false,
+    notes: "cozinha pintada.jpeg",
+  },
+
+  kitchenBefore: {
+    id: "kitchen-before",
+    title: "Kitchen Preparation & Painting — Before",
+    category: "kitchen" as const,
+    url: "/images/fotos/WhatsApp Image 2026-09-08 at 14.05.51.jpeg",
+    alt: "Cozinha antes da reforma e pintura de armários",
     isPlaceholder: false,
     notes: "WhatsApp Image 2026-09-08 at 14.05.51",
+  },
+
+  kitchenAfter: {
+    id: "kitchen-after",
+    title: "Kitchen Transformation — After",
+    category: "kitchen" as const,
+    url: "/images/cozinha001.jpeg",
+    alt: "Cozinha finalizada após pintura e reforma completa",
+    isPlaceholder: false,
+    notes: "cozinha001.jpeg",
   },
 
   bathroomHero: {
     id: "service-bathroom-hero",
     title: "Spa-Grade Master Bathroom Renovation",
     category: "bathroom" as const,
-    url: "/images/bathroom-remodel.jpeg",
+    url: "/images/fotos/WhatsApp Image 2026-09-08 at 14.06.06 (2).jpeg",
     alt: "Reforma de banheiro com box em revestimento cerâmico e nicho",
     isPlaceholder: false,
-    notes: "WhatsApp Image 2026-09-08 at 14.06.05 (3)",
+    notes: "WhatsApp Image 2026-09-08 at 14.06.06 (2)",
   },
 
   paintingHero: {
@@ -147,6 +177,16 @@ export const SITE_ASSETS = {
     alt: "Escada após revitalização, degraus envernizados e pintura",
     isPlaceholder: false,
     notes: "WhatsApp Image 2026-09-08 at 14.01.44",
+  },
+
+  entrywayTransformation: {
+    id: "entryway-transformation",
+    title: "Entryway Architectural Finish",
+    category: "improvement" as const,
+    url: "/images/WhatsApp Image 2026-09-08 at 14.02.00.jpeg",
+    alt: "Acabamento arquitetônico de entrada - Antes e Depois",
+    isPlaceholder: false,
+    notes: "WhatsApp Image 2026-09-08 at 14.02.00",
   },
 
   // SECTION 04 — FEATURE PROJECT

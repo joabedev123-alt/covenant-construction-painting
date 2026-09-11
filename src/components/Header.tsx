@@ -199,8 +199,8 @@ export function Header({ onOpenEstimate }: HeaderProps) {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-x-0 top-full bg-white/98 backdrop-blur-xl border-b border-covenant-border shadow-elevated lg:hidden transition-all duration-300 overflow-hidden ${
-          mobileMenuOpen ? "max-h-[85vh] py-6 px-6 opacity-100" : "max-h-0 py-0 px-6 opacity-0 pointer-events-none"
+        className={`fixed inset-x-0 top-full bg-white/98 backdrop-blur-xl border-b border-covenant-border shadow-elevated lg:hidden transition-all duration-300 overflow-y-auto overscroll-contain ${
+          mobileMenuOpen ? "max-h-[calc(100dvh-75px)] py-6 px-6 opacity-100" : "max-h-0 py-0 px-6 opacity-0 pointer-events-none"
         }`}
       >
         <div className="space-y-4">

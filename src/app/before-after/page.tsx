@@ -34,6 +34,7 @@ export default function BeforeAfterPage() {
       id: "case-staircase-transformation",
       title: "Staircase Refinish & Precision Enamel",
       category: "STAIRCASE TRANSFORMATION",
+      singleImage: SITE_ASSETS.entrywayTransformation.url,
       beforeImage: SITE_ASSETS.staircaseBefore.url,
       afterImage: SITE_ASSETS.staircaseAfter.url,
       beforeAlt: "Worn staircase entry before refinishing",
@@ -51,8 +52,8 @@ export default function BeforeAfterPage() {
       id: "case-kitchen-transformation",
       title: "Transitional Kitchen Layout Reconfiguration",
       category: "KITCHEN TRANSFORMATION",
-      beforeImage: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1400&q=80",
-      afterImage: SITE_ASSETS.kitchenHero.url,
+      beforeImage: SITE_ASSETS.kitchenBefore.url,
+      afterImage: SITE_ASSETS.kitchenAfter.url,
       beforeAlt: "Enclosed, dark kitchen before remodel",
       afterAlt: "Bright open-concept gourmet kitchen after remodel",
       description:
@@ -112,6 +113,7 @@ export default function BeforeAfterPage() {
               {/* Interactive Comparison Slider */}
               <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-2xl border border-covenant-border shadow-card">
                 <BeforeAfterSlider
+                  singleImage={item.singleImage}
                   beforeImage={item.beforeImage}
                   afterImage={item.afterImage}
                   beforeAlt={item.beforeAlt}

@@ -93,7 +93,7 @@ export default function HomePage() {
 
             {/* Right Hero Image (5 cols) */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-elevated border border-covenant-border/80 bg-covenant-navy/5">
+              <div className="relative aspect-[3/2] w-full rounded-2xl overflow-hidden shadow-elevated border border-covenant-border/80 bg-covenant-navy/5 hover:shadow-2xl transition-shadow duration-300">
                 <Image
                   src={SITE_ASSETS.heroMain.url}
                   alt={SITE_ASSETS.heroMain.alt}
@@ -102,17 +102,6 @@ export default function HomePage() {
                   sizes="(max-width: 1024px) 100vw, 45vw"
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-covenant-navy/40 via-transparent to-transparent pointer-events-none" />
-
-                {/* Subtle Floating Editorial Pill */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-card border border-covenant-border/80">
-                  <div className="text-[10px] font-bold tracking-widest uppercase text-covenant-gold-dark">
-                    High-End Residential Expertise
-                  </div>
-                  <div className="font-serif text-sm font-semibold text-covenant-navy mt-0.5">
-                    Thoughtful Layouts & Master Finishes
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -127,10 +116,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Detail Photo (5 cols) */}
             <div className="lg:col-span-5 order-2 lg:order-1">
-              <div className="relative aspect-[4/3] sm:aspect-[5/4] rounded-2xl overflow-hidden shadow-card border border-covenant-border bg-white">
+              <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-card border border-covenant-border bg-white hover:shadow-2xl transition-shadow duration-300">
                 <Image
-                  src={SITE_ASSETS.heroAbout.url}
-                  alt="Craftsmanship detail in home remodeling"
+                  src={SITE_ASSETS.covenantStandard.url}
+                  alt={SITE_ASSETS.covenantStandard.alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover object-center"
@@ -335,21 +324,21 @@ export default function HomePage() {
       <section className="py-20 lg:py-28 bg-white border-b border-covenant-border/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            {/* Broad Photography 60% (7 cols) */}
-            <div className="lg:col-span-7">
-              <div className="relative aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-elevated border border-covenant-border bg-covenant-navy/5">
+            {/* Photography (5 cols) */}
+            <div className="lg:col-span-5">
+              <div className="relative aspect-[3/4] max-w-md mx-auto lg:max-w-none w-full rounded-2xl overflow-hidden shadow-elevated border border-covenant-border bg-covenant-navy/5">
                 <Image
                   src={SITE_ASSETS.featureProject.url}
                   alt={SITE_ASSETS.featureProject.alt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
                   className="object-cover object-center"
                 />
               </div>
             </div>
 
-            {/* Editorial Text 40% (5 cols) */}
-            <div className="lg:col-span-5 space-y-6 text-left">
+            {/* Editorial Text (7 cols) */}
+            <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] text-covenant-gold-dark uppercase">
                 <span className="w-5 h-px bg-covenant-gold" />
                 <span>FEATURED PROJECT</span>
@@ -465,13 +454,10 @@ export default function HomePage() {
             <div className="lg:col-span-7">
               <div className="bg-covenant-offwhite p-3 sm:p-5 rounded-2xl border border-covenant-border shadow-card">
                 <BeforeAfterSlider
-                  beforeImage={SITE_ASSETS.staircaseBefore.url}
-                  afterImage={SITE_ASSETS.staircaseAfter.url}
-                  beforeAlt="Staircase before refinishing"
-                  afterAlt="Staircase after refinishing"
+                  singleImage={SITE_ASSETS.entrywayTransformation.url}
                   title="Entryway Architectural Finish"
                   category="BEFORE & AFTER"
-                  aspectRatio="16/9"
+                  aspectRatio="4/3"
                 />
               </div>
             </div>
