@@ -71,10 +71,10 @@ export const SITE_ASSETS = {
     id: "covenant-standard-quality",
     title: "The Covenant Standard — Exterior Transformation",
     category: "improvement" as const,
-    url: "/images/fotos/WhatsApp Image 2026-09-08 at 14.06.04.jpeg",
+    url: "/images/frente02.jpeg",
     alt: "The Covenant Standard - Mais do que uma reforma, um compromisso com a qualidade",
     isPlaceholder: false,
-    notes: "WhatsApp Image 2026-09-08 at 14.06.04",
+    notes: "frente02.jpeg",
   },
 
   heroServices: {
