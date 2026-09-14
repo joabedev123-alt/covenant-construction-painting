@@ -2,6 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import { SectionHeader } from "@/components/SectionHeader";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { MasterBathroomCaseShowcase } from "@/components/MasterBathroomCaseShowcase";
 import { FinalCTA } from "@/components/FinalCTA";
 import { SITE_ASSETS } from "@/data/assets";
 
@@ -110,21 +111,23 @@ export default function BeforeAfterPage() {
                 </p>
               </div>
 
-              {/* Interactive Comparison Slider */}
-              <div
-                className={`bg-covenant-offwhite p-4 sm:p-7 rounded-2xl border border-covenant-border shadow-card ${
-                  item.id === "case-bathroom-transformation" ? "max-w-2xl mx-auto" : "w-full"
-                }`}
-              >
-                <BeforeAfterSlider
-                  singleImage={item.singleImage}
-                  beforeImage={item.beforeImage}
-                  afterImage={item.afterImage}
-                  beforeAlt={item.beforeAlt}
-                  afterAlt={item.afterAlt}
-                  aspectRatio={item.id === "case-bathroom-transformation" ? "4/5" : "16/9"}
-                />
-              </div>
+              {/* Interactive Comparison Slider / Photo Carousel */}
+              {item.id === "case-bathroom-transformation" ? (
+                <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-3xl border border-covenant-border shadow-card">
+                  <MasterBathroomCaseShowcase />
+                </div>
+              ) : (
+                <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-2xl border border-covenant-border shadow-card w-full">
+                  <BeforeAfterSlider
+                    singleImage={item.singleImage}
+                    beforeImage={item.beforeImage}
+                    afterImage={item.afterImage}
+                    beforeAlt={item.beforeAlt}
+                    afterAlt={item.afterAlt}
+                    aspectRatio="16/9"
+                  />
+                </div>
+              )}
 
               {/* Highlights List */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-left">
