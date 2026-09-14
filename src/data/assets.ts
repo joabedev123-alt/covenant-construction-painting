@@ -179,6 +179,26 @@ export const SITE_ASSETS = {
     notes: "WhatsApp Image 2026-09-08 at 14.01.44",
   },
 
+  exteriorBefore: {
+    id: "exterior-before",
+    title: "Exterior Facade Painting — Before",
+    category: "painting" as const,
+    url: "/images/antes01.jpeg",
+    alt: "Fachada externa antes da pintura e restauração",
+    isPlaceholder: false,
+    notes: "antes01.jpeg",
+  },
+
+  exteriorAfter: {
+    id: "exterior-after",
+    title: "Exterior Facade Painting — After",
+    category: "painting" as const,
+    url: "/images/depois01.jpeg",
+    alt: "Fachada externa após pintura e restauração completa",
+    isPlaceholder: false,
+    notes: "depois01.jpeg",
+  },
+
   entrywayTransformation: {
     id: "entryway-transformation",
     title: "Entryway Architectural Finish",

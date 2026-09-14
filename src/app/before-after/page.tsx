@@ -65,6 +65,23 @@ export default function BeforeAfterPage() {
         "Integrated modern exhaust hood and undermount sink",
       ],
     },
+    {
+      id: "case-exterior-transformation",
+      title: "Exterior Facade Painting & Restoration",
+      category: "EXTERIOR TRANSFORMATION",
+      beforeImage: SITE_ASSETS.exteriorBefore.url,
+      afterImage: SITE_ASSETS.exteriorAfter.url,
+      beforeAlt: "Building exterior facade before painting",
+      afterAlt: "Building exterior facade after complete painting and restoration",
+      description:
+        "A full exterior refresh combining thorough pressure washing, surface repair, and weather-resistant coatings to restore curb appeal and protect the structure for years to come.",
+      highlights: [
+        "Complete pressure washing and surface preparation",
+        "Patched and sealed stucco and trim imperfections",
+        "High-adhesion primer for long-lasting coverage",
+        "Weather-resistant exterior-grade paint finish",
+      ],
+    },
   ];
 
   return (
