@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import { ArrowRight, CheckCircle2, Phone, Droplet, Sparkles, ShieldCheck, Waves } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
-import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { MasterBathroomCaseShowcase } from "@/components/MasterBathroomCaseShowcase";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -75,27 +75,18 @@ export default function BathroomRemodelingPage() {
       </section>
 
       {/* ---------------------------------------------------- */}
-      {/* BEFORE & AFTER (CENTRAL VISUAL ELEMENT)              */}
+      {/* REAL PROJECT SHOWCASE (CAROUSEL)                     */}
       {/* ---------------------------------------------------- */}
       <section className="py-24 lg:py-32 bg-white border-b border-covenant-border/60">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
           <SectionHeader
-            eyebrow="REAL TRANSFORMATION"
-            title="Before & After Bathroom Case"
-            subtitle="Drag the interactive slider below to witness how our precision remodel turned an outdated bathroom into a pristine modern haven."
+            eyebrow="SEE THE DIFFERENCE"
+            title="Real Spaces. Real Transformations."
+            subtitle="Explore how meticulous renovation elevates a tired bathroom into a breathtaking, spa-grade retreat."
           />
 
-          {/* Interactive Slider with the Real Before & After slots */}
-          <div className="max-w-2xl mx-auto bg-covenant-offwhite p-4 sm:p-6 rounded-2xl border border-covenant-border shadow-card">
-            <BeforeAfterSlider
-              beforeImage={SITE_ASSETS.bathroomBefore.url}
-              afterImage={SITE_ASSETS.bathroomAfter.url}
-              beforeAlt="Bathroom before renovation"
-              afterAlt="Bathroom after complete renovation"
-              title="Full Bathroom Renovation"
-              category="BEFORE & AFTER COMPARISON"
-              aspectRatio="4/5"
-            />
+          <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-3xl border border-covenant-border shadow-card">
+            <MasterBathroomCaseShowcase />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 text-left">
