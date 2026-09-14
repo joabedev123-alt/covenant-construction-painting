@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
     afterImage: "/images/painting-finished.jpeg",
   },
   {
-    id: "project-kitchen-02",
+    id: "project-other-03",
     title: "Residential Patio & Exterior Construction",
     category: "other",
     categoryLabel: "Home Improvement",

@@ -33,7 +33,7 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl shadow-elevated border border-covenant-border p-6 sm:p-8 space-y-6 relative"
+        className="bg-white w-full max-w-lg max-h-[90dvh] overflow-y-auto rounded-2xl shadow-elevated border border-covenant-border p-6 sm:p-8 space-y-6 relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}

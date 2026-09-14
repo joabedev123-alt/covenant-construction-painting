@@ -43,6 +43,11 @@ const config: Config = {
       transitionTimingFunction: {
         smooth: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
+      opacity: {
+        15: "0.15",
+        85: "0.85",
+        98: "0.98",
+      },
     },
   },
   plugins: [],

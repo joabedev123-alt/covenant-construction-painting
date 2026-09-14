@@ -17,7 +17,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------- */}
       {/* SECTION 01 — HERO                                    */}
       {/* ---------------------------------------------------- */}
-      <section className="relative min-h-[calc(100vh-92px)] flex items-center bg-white overflow-hidden border-b border-covenant-border/60">
+      <section className="relative min-h-[calc(100svh-92px)] flex items-center bg-white overflow-hidden border-b border-covenant-border/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* Left Content (7 cols) */}

@@ -78,7 +78,7 @@ export function BrandLogo({
             Covenant
           </span>
           <span
-            className={`font-sans font-semibold tracking-[0.24em] ${subColor} ${dimensions.sub} uppercase mt-1 flex items-center gap-1.5`}
+            className={`font-sans font-semibold tracking-[0.24em] ${subColor} ${dimensions.sub} uppercase mt-1 hidden min-[380px]:flex items-center gap-1.5`}
           >
             <span>Construction</span>
             <span className="inline-block w-1 h-1 rounded-full bg-covenant-gold opacity-80" />
