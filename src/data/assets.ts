@@ -51,10 +51,10 @@ export const SITE_ASSETS = {
     id: "hero-residential-remodel",
     title: "Covenant Transformations — Before & After Showcase",
     category: "improvement" as const,
-    url: "/images/fotos/WhatsApp Image 2026-09-08 at 14.06.04 (1).jpeg",
+    url: "/images/frente03.jpeg",
     alt: "Transformações residenciais Antes e Depois por Covenant Construction & Painting",
     isPlaceholder: false,
-    notes: "WhatsApp Image 2026-09-08 at 14.06.04 (1)",
+    notes: "frente03.jpeg",
   },
 
   heroAbout: {
