@@ -2,10 +2,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import { ArrowRight, Check, Phone } from "lucide-react";
-import { SectionHeader } from "@/components/SectionHeader";
+import { ArrowRight, Check } from "lucide-react";
 import { FinalCTA } from "@/components/FinalCTA";
-import { SITE_ASSETS, COMPANY_INFO } from "@/data/assets";
+import { SITE_ASSETS } from "@/data/assets";
 
 export const metadata: Metadata = {
   title: "Residential Services | Covenant Construction & Painting",

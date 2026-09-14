@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import { ArrowRight, CheckCircle2, Phone, Paintbrush, Home, Sparkles, Shield } from "lucide-react";
+import { ArrowRight, CheckCircle2, Phone, Paintbrush, Home } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { FinalCTA } from "@/components/FinalCTA";

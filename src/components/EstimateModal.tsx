@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Phone, Mail, Send, CheckCircle2, ShieldCheck } from "lucide-react";
+import { X, Phone, Send, CheckCircle2, ShieldCheck } from "lucide-react";
 import { COMPANY_INFO } from "@/data/assets";
 
 interface EstimateModalProps {
@@ -21,7 +21,7 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Simulate prompt dispatch / ready for backend API or mailto
     setSubmitted(true);

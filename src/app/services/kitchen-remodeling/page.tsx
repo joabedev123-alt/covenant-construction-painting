@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import { ArrowRight, CheckCircle2, Phone, Sparkles, ChefHat, Layers, ShieldCheck } from "lucide-react";
+import { ArrowRight, Phone, ChefHat, Layers, ShieldCheck } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { KitchenProjectShowcase } from "@/components/KitchenProjectShowcase";

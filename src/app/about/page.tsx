@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Metadata } from "next";
-import { HeartHandshake, ShieldCheck, Award, ArrowRight, CheckCircle2, Phone } from "lucide-react";
+import { HeartHandshake, ShieldCheck, Award, CheckCircle2, Phone } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { FinalCTA } from "@/components/FinalCTA";
 import { SITE_ASSETS, COMPANY_INFO } from "@/data/assets";

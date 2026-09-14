@@ -1,6 +1,5 @@
 import React from "react";
 import { Metadata } from "next";
-import { SectionHeader } from "@/components/SectionHeader";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { MasterBathroomCaseShowcase } from "@/components/MasterBathroomCaseShowcase";
 import { FinalCTA } from "@/components/FinalCTA";

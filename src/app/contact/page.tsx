@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, Mail, Send, CheckCircle2, ShieldCheck, Clock, MessageSquare, ArrowRight } from "lucide-react";
-import { SectionHeader } from "@/components/SectionHeader";
+import { Phone, Mail, Send, CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
 import { COMPANY_INFO } from "@/data/assets";
 
 export default function ContactPage() {
@@ -15,7 +14,7 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
   };

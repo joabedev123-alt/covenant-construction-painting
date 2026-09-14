@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, X, Sparkles, Check, Phone } from "lucide-react";
+import { ArrowUpRight, X, Check, Phone } from "lucide-react";
 import { Project, PROJECTS } from "@/data/projects";
 import { COMPANY_INFO } from "@/data/assets";
 
