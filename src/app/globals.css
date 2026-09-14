@@ -28,6 +28,25 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   position: relative;
+  /* Espaço para o MobileCallBar fixo no bottom em telas pequenas */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Padding extra no rodapé apenas em mobile para não cobrir conteúdo */
+@media (max-width: 639px) {
+  body {
+    padding-bottom: 0;
+  }
+  footer {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Melhorias de toque para mobile */
+@media (max-width: 768px) {
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 ::selection {

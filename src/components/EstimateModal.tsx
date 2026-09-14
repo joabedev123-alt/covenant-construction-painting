@@ -33,7 +33,7 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white w-full max-w-lg rounded-2xl shadow-elevated border border-covenant-border p-6 sm:p-8 space-y-6 relative"
+        className="bg-white w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl shadow-elevated border border-covenant-border p-6 sm:p-8 space-y-6 relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -96,7 +96,7 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
                   placeholder="John Smith"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40"
+                  className="w-full text-base sm:text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40"
                 />
               </div>
 
@@ -110,7 +110,7 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
                   placeholder="(508) 000-0000"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40"
+                  className="w-full text-base sm:text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40"
                 />
               </div>
             </div>
@@ -125,7 +125,7 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
                 placeholder="john@example.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40"
+                className="w-full text-base sm:text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40"
               />
             </div>
 
@@ -136,7 +136,7 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
               <select
                 value={formData.projectType}
                 onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                className="w-full text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40"
+                className="w-full text-base sm:text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40"
               >
                 <option value="Kitchen Remodeling">Kitchen Remodeling</option>
                 <option value="Bathroom Remodeling">Bathroom Remodeling</option>
@@ -155,7 +155,7 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
                 placeholder="Briefly describe what you would like to remodel or paint..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40 resize-none"
+                className="w-full text-base sm:text-sm px-3.5 py-2.5 rounded-lg border border-covenant-border focus:border-covenant-gold focus:outline-none focus:ring-1 focus:ring-covenant-gold bg-covenant-offwhite/40 resize-none"
               />
             </div>
 

@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { ArrowRight, CheckCircle2, Phone, Sparkles, ChefHat, Layers, ShieldCheck } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { KitchenProjectShowcase } from "@/components/KitchenProjectShowcase";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { FinalCTA } from "@/components/FinalCTA";
 import { SITE_ASSETS, COMPANY_INFO } from "@/data/assets";
@@ -58,7 +59,7 @@ export default function KitchenRemodelingPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="relative aspect-[4/3] sm:aspect-[1/1] rounded-2xl overflow-hidden shadow-elevated border border-covenant-border bg-covenant-navy/5">
+              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-elevated border border-covenant-border bg-covenant-navy/5">
                 <Image
                   src={SITE_ASSETS.kitchenHero.url}
                   alt={SITE_ASSETS.kitchenHero.alt}
@@ -125,9 +126,26 @@ export default function KitchenRemodelingPage() {
       </section>
 
       {/* ---------------------------------------------------- */}
-      {/* BEFORE & AFTER SECTION                               */}
+      {/* KITCHEN SHOWCASE GALLERY (COZINHA 01 A 05)           */}
       {/* ---------------------------------------------------- */}
       <section className="py-24 lg:py-32 bg-covenant-offwhite border-b border-covenant-border/60">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
+          <SectionHeader
+            eyebrow="REAL PROJECT SHOWCASE"
+            title="Every Angle of a Master Kitchen"
+            subtitle="Explore all 5 architectural perspectives of this luxury open-concept gourmet kitchen remodel."
+          />
+
+          <div className="bg-white p-4 sm:p-8 rounded-3xl border border-covenant-border shadow-card">
+            <KitchenProjectShowcase />
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------- */}
+      {/* BEFORE & AFTER SECTION                               */}
+      {/* ---------------------------------------------------- */}
+      <section className="py-24 lg:py-32 bg-white border-b border-covenant-border/60">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
           <SectionHeader
             eyebrow="KITCHEN TRANSFORMATION"

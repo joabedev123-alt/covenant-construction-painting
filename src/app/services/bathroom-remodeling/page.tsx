@@ -86,7 +86,7 @@ export default function BathroomRemodelingPage() {
           />
 
           {/* Interactive Slider with the Real Before & After slots */}
-          <div className="bg-covenant-offwhite p-4 sm:p-6 rounded-2xl border border-covenant-border shadow-card">
+          <div className="max-w-2xl mx-auto bg-covenant-offwhite p-4 sm:p-6 rounded-2xl border border-covenant-border shadow-card">
             <BeforeAfterSlider
               beforeImage={SITE_ASSETS.bathroomBefore.url}
               afterImage={SITE_ASSETS.bathroomAfter.url}
@@ -94,7 +94,7 @@ export default function BathroomRemodelingPage() {
               afterAlt="Bathroom after complete renovation"
               title="Full Bathroom Renovation"
               category="BEFORE & AFTER COMPARISON"
-              aspectRatio="16/9"
+              aspectRatio="4/5"
             />
           </div>
 

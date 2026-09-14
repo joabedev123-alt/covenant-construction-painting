@@ -91,10 +91,10 @@ export const SITE_ASSETS = {
     id: "service-kitchen-hero",
     title: "Custom Kitchen Cabinetry & Stone Countertops",
     category: "kitchen" as const,
-    url: "/images/cozinha pintada.jpeg",
-    alt: "Reforma de cozinha com armários planejados e pintura",
+    url: "/images/cozinha01.jpeg",
+    alt: "Reforma de cozinha com ilha de quartzo, armários planejados e pendentes",
     isPlaceholder: false,
-    notes: "cozinha pintada.jpeg",
+    notes: "cozinha01.jpeg",
   },
 
   kitchenBefore: {
@@ -111,20 +111,20 @@ export const SITE_ASSETS = {
     id: "kitchen-after",
     title: "Kitchen Transformation — After",
     category: "kitchen" as const,
-    url: "/images/cozinha001.jpeg",
-    alt: "Cozinha finalizada após pintura e reforma completa",
+    url: "/images/cozinha01.jpeg",
+    alt: "Cozinha gourmet finalizada com bancada em quartzo e armários brancos",
     isPlaceholder: false,
-    notes: "cozinha001.jpeg",
+    notes: "cozinha01.jpeg",
   },
 
   bathroomHero: {
     id: "service-bathroom-hero",
     title: "Spa-Grade Master Bathroom Renovation",
     category: "bathroom" as const,
-    url: "/images/fotos/WhatsApp Image 2026-09-08 at 14.06.06 (2).jpeg",
-    alt: "Reforma de banheiro com box em revestimento cerâmico e nicho",
+    url: "/images/banheiros/bathroom-02.jpeg",
+    alt: "Reforma de banheiro de luxo com box em porcelanato Calacatta e ferragens pretas",
     isPlaceholder: false,
-    notes: "WhatsApp Image 2026-09-08 at 14.06.06 (2)",
+    notes: "WhatsApp Image 2026-09-12 at 12.37.48 (1)",
   },
 
   paintingHero: {
@@ -137,25 +137,25 @@ export const SITE_ASSETS = {
     notes: "WhatsApp Image 2026-09-08 at 14.02.58",
   },
 
-  // SECTION 05 — REAL BATHROOM BEFORE & AFTER (TRANSFORMAÇÃO)
+  // SECTION 05 — REAL BATHROOM SHOWCASE & BEFORE/AFTER
   bathroomBefore: {
     id: "bathroom-before",
-    title: "Transformation — Before",
-    category: "painting" as const,
-    url: "/images/painting-prep-before.jpeg",
-    alt: "Espaço antes da transformação e preparação de pintura",
+    title: "Master Bathroom — Outdated Setup",
+    category: "bathroom" as const,
+    url: "/images/banheiros/bathroom-03.jpeg",
+    alt: "Reforma de banheiro com nicho e acabamento personalizado",
     isPlaceholder: false,
-    notes: "WhatsApp Image 2026-09-08 at 14.02.57",
+    notes: "WhatsApp Image 2026-09-12 at 12.37.48 (2)",
   },
 
   bathroomAfter: {
     id: "bathroom-after",
-    title: "Transformation — After",
-    category: "painting" as const,
-    url: "/images/painting-finished.jpeg",
-    alt: "Espaço após transformação completa com acabamento de pintura impecável",
+    title: "Master Bathroom — Luxury Completed Suite",
+    category: "bathroom" as const,
+    url: "/images/banheiros/bathroom-01.jpeg",
+    alt: "Suíte de banheiro principal concluída com banheira e acabamento em mármore",
     isPlaceholder: false,
-    notes: "WhatsApp Image 2026-09-08 at 14.02.58",
+    notes: "WhatsApp Image 2026-09-12 at 12.37.48",
   },
 
   // SECTION 06 — REAL STAIRCASE BEFORE & AFTER
@@ -210,3 +210,151 @@ export const SITE_ASSETS = {
     isPlaceholder: false,
   },
 };
+
+export interface BathroomShowcaseItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  url: string;
+  alt: string;
+  tags: string[];
+}
+
+export const BATHROOM_SHOWCASE_IMAGES: BathroomShowcaseItem[] = [
+  {
+    id: "bath-01",
+    title: "Master Suite with Soaking Tub & Custom Wood Vanity",
+    subtitle: "Modern Calacatta & Warm Oak Finish",
+    description:
+      "Revestimento em porcelanato marmorizado, banheira embutida, bancada suspensa em madeira nobre com cuba de apoio e metais pretos foscos.",
+    url: "/images/banheiros/bathroom-01.jpeg",
+    alt: "Master bathroom with soaking tub, modern wood vanity and matte black fixtures",
+    tags: ["Soaking Tub", "Oak Vanity", "Matte Black", "Oval LED Mirror"],
+  },
+  {
+    id: "bath-02",
+    title: "Calacatta Gold Walk-In Shower Suite",
+    subtitle: "Floor-to-Ceiling Marble & Framed Glass",
+    description:
+      "Box walk-in com esquadria preta sob medida, revestimento contínuo Calacatta Gold do piso ao teto, cuba esculpida e espelho circular retroiluminado.",
+    url: "/images/banheiros/bathroom-02.jpeg",
+    alt: "Walk-in shower suite with Calacatta marble and black framed glass enclosure",
+    tags: ["Walk-In Shower", "Calacatta Gold", "Framed Glass", "Halo LED Mirror"],
+  },
+  {
+    id: "bath-03",
+    title: "Hexagon Accent Tile & Contemporary Vanity",
+    subtitle: "Geometric Tile Craftsmanship & Built-in Niche",
+    description:
+      "Banheira com resguardo de vidro temperado, nicho embutido em pastilhas hexagonais, piso geométrico e iluminação moderna.",
+    url: "/images/banheiros/bathroom-03.jpeg",
+    alt: "Contemporary bathroom featuring hexagon floor tile, built-in niche and LED mirror",
+    tags: ["Hexagon Tiles", "Recessed Niche", "Glass Shield", "Custom Vanity"],
+  },
+  {
+    id: "bath-04",
+    title: "Black Hexagon & Contrasting Marble Walk-In",
+    subtitle: "Dramatic Contrast & Rain Shower Experience",
+    description:
+      "Piso hexagonal preto grafite, paredes em mármore acetinado, nicho escuro embutido e ducha de teto em preto fosco de alta vazão.",
+    url: "/images/banheiros/bathroom-04.jpeg",
+    alt: "Modern walk-in shower with black hexagon floor tile and contrasting marble walls",
+    tags: ["Black Hexagon Floor", "Rain Shower", "Contrast Tile", "Modern Vanity"],
+  },
+  {
+    id: "bath-05",
+    title: "Ultra-Modern Minimalist Marble & Matte Black Suite",
+    subtitle: "Sleek Monolithic Design & Designer Fixtures",
+    description:
+      "Porcelanato acetinado com veios suaves, vaso sanitário monobloco em preto fosco, cuba de apoio com misturador de bica alta e box minimalista.",
+    url: "/images/banheiros/bathroom-05.jpeg",
+    alt: "Ultra-modern bathroom with matte black toilet, designer sink and marble tiles",
+    tags: ["Matte Black Toilet", "Floating Vanity", "Curbless Glass", "LED Vanity Mirror"],
+  },
+  {
+    id: "bath-06",
+    title: "Classic Elegance with Brushed Gold Fixtures",
+    subtitle: "Fish Scale Scallop Tile & Heritage Mosaic Floor",
+    description:
+      "Box com revestimento artesanal tipo escama de peixe, metais e ducha retrô em acabamento ouro escovado / champanhe, e piso em mosaico ornamentado.",
+    url: "/images/banheiros/bathroom-06.jpeg",
+    alt: "Classic luxury bathroom with brushed gold shower fixtures and scallop tiles",
+    tags: ["Brushed Gold Fixtures", "Scallop Tile", "Heritage Floor", "Half-Wall Glass"],
+  },
+  {
+    id: "bath-07",
+    title: "Spa-Style Gray Marble with Built-In Shower Bench",
+    subtitle: "Built-In Comfort, Wall Niche & Natural Light",
+    description:
+      "Amplo box de vidro com banco estrutural embutido revestido em mármore, nicho de parede e piso antiderrapante decorado.",
+    url: "/images/banheiros/bathroom-07.jpeg",
+    alt: "Spa-inspired bathroom featuring gray marble walls and built-in shower bench",
+    tags: ["Shower Bench", "Gray Marble", "Floor-to-Ceiling Glass", "Recessed Niche"],
+  },
+];
+
+export interface KitchenShowcaseItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  url: string;
+  alt: string;
+  tags: string[];
+}
+
+export const KITCHEN_SHOWCASE_IMAGES: KitchenShowcaseItem[] = [
+  {
+    id: "kitchen-01",
+    title: "Gourmet Open-Concept Kitchen & Calacatta Quartz Island",
+    subtitle: "Custom Shaker Cabinetry, Stone Surfaces & Farmhouse Sink",
+    description:
+      "Cozinha integrada de luxo com ampla ilha em bancada de quartzo calacatta, cuba esculpida, armários planejados brancos até o teto e pendentes artesanais.",
+    url: "/images/cozinha01.jpeg",
+    alt: "Reforma de cozinha gourmet com ilha de quartzo calacatta e armários planejados",
+    tags: ["Ilha Gourmet", "Quartzo Calacatta", "Armários Planejados", "Cuba Farmhouse"],
+  },
+  {
+    id: "kitchen-02",
+    title: "Center Island Breakfast Bar & Designer Pendant Lighting",
+    subtitle: "Seamless Food Prep & Casual Gathering Space",
+    description:
+      "Visão detalhada da bancada da ilha com banquetas estofadas, prateleiras em madeira nobre e refrigerador embutido em inox.",
+    url: "/images/cozinha02.jpeg",
+    alt: "Bancada da ilha de cozinha com banquetas e pendentes de iluminação",
+    tags: ["Bancada de Refeições", "Prateleiras em Madeira", "Pendentes Decorativos", "Refrigerador Inox"],
+  },
+  {
+    id: "kitchen-03",
+    title: "Scenic Window Bay & Professional Chef Range",
+    subtitle: "Natural Daylight Integration & High-Output Cooking Center",
+    description:
+      "Área de cocção gourmet com fogão profissional de alta potência, coifa personalizada em marcenaria e amplas janelas com luz natural.",
+    url: "/images/cozinha03.jpeg",
+    alt: "Área de cocção gourmet com fogão profissional e janelas panorâmicas",
+    tags: ["Fogão Profissional", "Coifa Embutida", "Luz Natural", "Gaveteiros Amplos"],
+  },
+  {
+    id: "kitchen-04",
+    title: "Symmetrical Island Layout & Premium Quartz Finish",
+    subtitle: "Architectural Balance & Durable Stain-Resistant Surfaces",
+    description:
+      "Vista frontal simétrica destacando a cascata da bancada de quartzo, misturador monocomando em tom bronze e circulação fluida.",
+    url: "/images/cozinha04.jpeg",
+    alt: "Vista frontal da ilha de cozinha gourmet com bancada de quartzo e banquetas",
+    tags: ["Bancada em Cascata", "Torneira Bronze", "Circulação Otimizada", "Design Simétrico"],
+  },
+  {
+    id: "kitchen-05",
+    title: "Full-Height Custom Pantry & Prep Workflow Corridor",
+    subtitle: "Floor-to-Ceiling Storage Capacity & Smart Ergonomics",
+    description:
+      "Corredor de trabalho ergonômico entre a bancada principal e a ilha, com marcenaria sob medida de piso a teto para máxima despensa.",
+    url: "/images/cozinha05.jpeg",
+    alt: "Corredor de preparo da cozinha com armários planejados piso ao teto",
+    tags: ["Despensa Piso ao Teto", "Fluxo de Trabalho", "Bancada Estendida", "Torre de Armários"],
+  },
+];
+
+

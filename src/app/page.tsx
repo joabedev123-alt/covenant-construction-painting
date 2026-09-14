@@ -5,6 +5,7 @@ import { Phone, ArrowRight, CheckCircle2, ShieldCheck, HeartHandshake, Award } f
 import { SectionHeader } from "@/components/SectionHeader";
 import { TrustBadges } from "@/components/TrustBadges";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { MasterBathroomCaseShowcase } from "@/components/MasterBathroomCaseShowcase";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -182,11 +183,13 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-covenant-navy/5 border border-covenant-border/70">
+                {/* Foto única de destaque da cozinha na proporção nativa 16/10 sem bordas brancas */}
+                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-covenant-navy/5 border border-covenant-border/70 group/img">
                   <Image
                     src={SITE_ASSETS.kitchenHero.url}
                     alt="Kitchen Remodeling"
                     fill
+                    sizes="(max-width: 768px) 100vw, 400px"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -386,24 +389,16 @@ export default function HomePage() {
       {/* SECTION 05 — BEFORE & AFTER (BATHROOM)               */}
       {/* ---------------------------------------------------- */}
       <section className="py-24 lg:py-32 bg-covenant-offwhite border-b border-covenant-border/60">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
           <SectionHeader
             eyebrow="SEE THE DIFFERENCE"
             title="Real Spaces. Real Transformations."
             subtitle="Explore how meticulous renovation elevates tired spaces into breathtaking rooms that offer daily comfort and enduring luxury."
           />
 
-          {/* Interactive Slider Component */}
-          <div className="bg-white p-4 sm:p-6 rounded-2xl border border-covenant-border shadow-card">
-            <BeforeAfterSlider
-              beforeImage={SITE_ASSETS.bathroomBefore.url}
-              afterImage={SITE_ASSETS.bathroomAfter.url}
-              beforeAlt="Bathroom before renovation"
-              afterAlt="Bathroom after complete renovation"
-              title="Master Bathroom Renovation Case"
-              category="BATHROOM TRANSFORMATION"
-              aspectRatio="16/9"
-            />
+          {/* Interactive Showcase with all images from the banheiros folder */}
+          <div className="bg-white p-4 sm:p-7 rounded-3xl border border-covenant-border shadow-card">
+            <MasterBathroomCaseShowcase />
           </div>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">

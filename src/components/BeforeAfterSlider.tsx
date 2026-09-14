@@ -12,7 +12,7 @@ interface BeforeAfterSliderProps {
   afterAlt?: string;
   title?: string;
   category?: string;
-  aspectRatio?: "16/9" | "4/3" | "1/1" | "custom";
+  aspectRatio?: "16/9" | "4/3" | "1/1" | "4/5" | "3/4" | "custom";
   className?: string;
 }
 
@@ -66,6 +66,8 @@ export function BeforeAfterSlider({
     "16/9": "aspect-[16/10] sm:aspect-[16/9]",
     "4/3": "aspect-[4/3]",
     "1/1": "aspect-square",
+    "4/5": "aspect-[4/5]",
+    "3/4": "aspect-[3/4]",
     "custom": "h-[460px] sm:h-[560px]",
   }[aspectRatio];
 

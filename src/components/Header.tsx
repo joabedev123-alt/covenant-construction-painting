@@ -211,30 +211,35 @@ export function Header({ onOpenEstimate }: HeaderProps) {
             <div className="space-y-2">
               <Link
                 href="/"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-base font-medium text-covenant-charcoal hover:text-covenant-navy"
               >
                 Home
               </Link>
               <Link
                 href="/about"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-base font-medium text-covenant-charcoal hover:text-covenant-navy"
               >
                 About Us
               </Link>
               <Link
                 href="/projects"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-base font-medium text-covenant-charcoal hover:text-covenant-navy"
               >
                 Projects & Gallery
               </Link>
               <Link
                 href="/before-after"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-base font-medium text-covenant-charcoal hover:text-covenant-navy"
               >
                 Before & After
               </Link>
               <Link
                 href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-base font-medium text-covenant-charcoal hover:text-covenant-navy"
               >
                 Contact
@@ -249,24 +254,28 @@ export function Header({ onOpenEstimate }: HeaderProps) {
             <div className="space-y-2">
               <Link
                 href="/services/kitchen-remodeling"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-1.5 text-sm text-covenant-muted hover:text-covenant-navy font-medium"
               >
                 • Kitchen Remodeling
               </Link>
               <Link
                 href="/services/bathroom-remodeling"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-1.5 text-sm text-covenant-muted hover:text-covenant-navy font-medium"
               >
                 • Bathroom Remodeling
               </Link>
               <Link
                 href="/services/painting"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-1.5 text-sm text-covenant-muted hover:text-covenant-navy font-medium"
               >
                 • Professional Painting
               </Link>
               <Link
                 href="/services"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-1.5 text-sm text-covenant-gold-dark font-semibold"
               >
                 → View All Services

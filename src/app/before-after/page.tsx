@@ -111,14 +111,18 @@ export default function BeforeAfterPage() {
               </div>
 
               {/* Interactive Comparison Slider */}
-              <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-2xl border border-covenant-border shadow-card">
+              <div
+                className={`bg-covenant-offwhite p-4 sm:p-7 rounded-2xl border border-covenant-border shadow-card ${
+                  item.id === "case-bathroom-transformation" ? "max-w-2xl mx-auto" : "w-full"
+                }`}
+              >
                 <BeforeAfterSlider
                   singleImage={item.singleImage}
                   beforeImage={item.beforeImage}
                   afterImage={item.afterImage}
                   beforeAlt={item.beforeAlt}
                   afterAlt={item.afterAlt}
-                  aspectRatio="16/9"
+                  aspectRatio={item.id === "case-bathroom-transformation" ? "4/5" : "16/9"}
                 />
               </div>
 
