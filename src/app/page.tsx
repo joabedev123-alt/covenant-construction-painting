@@ -635,10 +635,11 @@ export default function HomePage() {
               <div className="lg:col-span-7">
                 <div className="bg-covenant-offwhite p-3 sm:p-5 rounded-2xl border border-covenant-border shadow-card">
                   <BeforeAfterSlider
-                    singleImage={SITE_ASSETS.entrywayTransformation.url}
+                    singleImage="/images/PHOTO-2026-09-16-08-47-28.jpg"
                     title="Entryway Architectural Finish"
                     category="BEFORE & AFTER"
                     aspectRatio="4/3"
+                    className="[&_img]:object-contain"
                   />
                 </div>
               </div>
