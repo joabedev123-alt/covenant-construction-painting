@@ -1,5 +1,6 @@
 import {
   ContentBlock,
+  ContentImage,
   ContentPage,
   ContentText,
 } from "@/components/cms/Content";
@@ -183,6 +184,19 @@ export default function BeforeAfterPage() {
                     </div>
                   )}
                 </ContentText>
+
+                {item.id === "case-staircase-transformation" && (
+                  <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-2xl border border-covenant-border shadow-card w-full">
+                    <ContentImage
+                      src="/images/PHOTO-2026-09-16-08-47-28.jpg"
+                      alt="Staircase before and after renovation, with carpet replaced by wood treads and white risers"
+                      width={1125}
+                      height={743}
+                      sizes="(max-width: 1152px) 100vw, 1152px"
+                      className="w-full h-auto rounded-xl"
+                    />
+                  </div>
+                )}
 
                 {/* Highlights List */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-left">
