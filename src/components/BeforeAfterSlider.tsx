@@ -1,7 +1,8 @@
 "use client";
 
+import { ContentText } from "@/components/cms/Content";
 import React, { useState, useRef, useCallback } from "react";
-import Image from "next/image";
+import { ContentImage as Image } from "@/components/cms/Content";
 import { MoveHorizontal } from "lucide-react";
 
 interface BeforeAfterSliderProps {
@@ -48,7 +49,7 @@ export function BeforeAfterSlider({
         handleMove(e.touches[0].clientX);
       }
     },
-    [handleMove]
+    [handleMove],
   );
 
   const handleMouseMove = useCallback(
@@ -56,7 +57,7 @@ export function BeforeAfterSlider({
       if (!isDragging) return;
       handleMove(e.clientX);
     },
-    [isDragging, handleMove]
+    [isDragging, handleMove],
   );
 
   const handleMouseDown = () => setIsDragging(true);
@@ -68,7 +69,7 @@ export function BeforeAfterSlider({
     "1/1": "aspect-square",
     "4/5": "aspect-[4/5]",
     "3/4": "aspect-[3/4]",
-    "custom": "h-[460px] sm:h-[560px]",
+    custom: "h-[460px] sm:h-[560px]",
   }[aspectRatio];
 
   if (singleImage) {
@@ -78,12 +79,16 @@ export function BeforeAfterSlider({
           <div className="flex items-baseline justify-between gap-4 px-1">
             {title && (
               <h3 className="font-serif text-xl sm:text-2xl font-semibold text-covenant-navy">
-                {title}
+                <ContentText id="components-BeforeAfterSlider-text-1">
+                  {title}
+                </ContentText>
               </h3>
             )}
             {category && (
               <span className="text-xs font-bold tracking-widest text-covenant-gold-dark uppercase">
-                {category}
+                <ContentText id="components-BeforeAfterSlider-text-2">
+                  {category}
+                </ContentText>
               </span>
             )}
           </div>
@@ -119,12 +124,16 @@ export function BeforeAfterSlider({
         <div className="flex items-baseline justify-between gap-4 px-1">
           {title && (
             <h3 className="font-serif text-xl sm:text-2xl font-semibold text-covenant-navy">
-              {title}
+              <ContentText id="components-BeforeAfterSlider-text-3">
+                {title}
+              </ContentText>
             </h3>
           )}
           {category && (
             <span className="text-xs font-bold tracking-widest text-covenant-gold-dark uppercase">
-              {category}
+              <ContentText id="components-BeforeAfterSlider-text-4">
+                {category}
+              </ContentText>
             </span>
           )}
         </div>
@@ -157,7 +166,9 @@ export function BeforeAfterSlider({
           />
           {/* Subtle After Label */}
           <div className="absolute bottom-4 right-4 bg-covenant-navy/85 backdrop-blur-sm text-white text-[11px] font-bold tracking-widest uppercase px-3 py-1.5 rounded shadow-sm border border-covenant-gold/30">
-            AFTER
+            <ContentText id="components-BeforeAfterSlider-text-5">
+              {"AFTER"}
+            </ContentText>
           </div>
         </div>
 
@@ -178,7 +189,9 @@ export function BeforeAfterSlider({
           />
           {/* Subtle Before Label */}
           <div className="absolute bottom-4 left-4 bg-black/75 backdrop-blur-sm text-white text-[11px] font-bold tracking-widest uppercase px-3 py-1.5 rounded shadow-sm border border-white/20">
-            BEFORE
+            <ContentText id="components-BeforeAfterSlider-text-6">
+              {"BEFORE"}
+            </ContentText>
           </div>
         </div>
 
@@ -195,7 +208,9 @@ export function BeforeAfterSlider({
 
         {/* Top Floating Helper Instructions */}
         <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-covenant-navy/80 backdrop-blur-sm text-white text-[10px] tracking-widest uppercase px-3.5 py-1 rounded-full pointer-events-none opacity-80 border border-white/10">
-          Drag to compare
+          <ContentText id="components-BeforeAfterSlider-text-7">
+            {"Drag to compare"}
+          </ContentText>
         </div>
       </div>
     </div>

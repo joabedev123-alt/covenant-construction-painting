@@ -1,3 +1,4 @@
+import { ContentText } from "@/components/cms/Content";
 import React from "react";
 
 interface SectionHeaderProps {
@@ -31,7 +32,11 @@ export function SectionHeader({
           }`}
         >
           <span className="w-5 h-px bg-covenant-gold" />
-          <span>{eyebrow}</span>
+          <span>
+            <ContentText id="components-SectionHeader-text-1">
+              {eyebrow}
+            </ContentText>
+          </span>
           <span className="w-5 h-px bg-covenant-gold" />
         </div>
       )}
@@ -41,7 +46,7 @@ export function SectionHeader({
           isDark ? "text-white" : "text-covenant-navy"
         }`}
       >
-        {title}
+        <ContentText id="components-SectionHeader-text-2">{title}</ContentText>
       </h2>
 
       {subtitle && (
@@ -50,7 +55,9 @@ export function SectionHeader({
             isDark ? "text-gray-300" : "text-covenant-muted"
           } ${isCenter ? "max-w-2xl mx-auto" : ""}`}
         >
-          {subtitle}
+          <ContentText id="components-SectionHeader-text-3">
+            {subtitle}
+          </ContentText>
         </p>
       )}
     </div>

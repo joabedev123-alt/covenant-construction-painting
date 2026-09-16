@@ -1,3 +1,8 @@
+import {
+  ContentBlock,
+  ContentPage,
+  ContentText,
+} from "@/components/cms/Content";
 import React from "react";
 import { Metadata } from "next";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -72,7 +77,8 @@ export default function BeforeAfterPage() {
       beforeImage: SITE_ASSETS.exteriorBefore.url,
       afterImage: SITE_ASSETS.exteriorAfter.url,
       beforeAlt: "Building exterior facade before painting",
-      afterAlt: "Building exterior facade after complete painting and restoration",
+      afterAlt:
+        "Building exterior facade after complete painting and restoration",
       description:
         "A full exterior refresh combining thorough pressure washing, surface repair, and weather-resistant coatings to restore curb appeal and protect the structure for years to come.",
       highlights: [
@@ -85,88 +91,138 @@ export default function BeforeAfterPage() {
   ];
 
   return (
-    <div className="space-y-0">
+    <ContentPage className="space-y-0">
       {/* ---------------------------------------------------- */}
       {/* HERO SECTION                                         */}
       {/* ---------------------------------------------------- */}
-      <section className="py-20 lg:py-28 bg-covenant-offwhite border-b border-covenant-border/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.24em] text-covenant-gold-dark uppercase">
-              <span className="w-6 h-px bg-covenant-gold" />
-              <span>REAL TRANSFORMATIONS</span>
+      <ContentBlock
+        id="app-before-after-page-section-1"
+        label="Transformation Speaks for Itself."
+      >
+        <section className="py-20 lg:py-28 bg-covenant-offwhite border-b border-covenant-border/60">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.24em] text-covenant-gold-dark uppercase">
+                <span className="w-6 h-px bg-covenant-gold" />
+                <span>
+                  <ContentText id="app-before-after-page-text-1">
+                    {"REAL TRANSFORMATIONS"}
+                  </ContentText>
+                </span>
+              </div>
+
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-covenant-navy leading-[1.1]">
+                <ContentText id="app-before-after-page-text-2">
+                  {"Transformation Speaks for Itself."}
+                </ContentText>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-covenant-muted font-light leading-relaxed">
+                <ContentText id="app-before-after-page-text-3">
+                  {
+                    "Slide back and forth to examine the craftsmanship, alignment, and immaculate attention to detail that define our residential remodels."
+                  }
+                </ContentText>
+              </p>
             </div>
-
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-covenant-navy leading-[1.1]">
-              Transformation Speaks for Itself.
-            </h1>
-
-            <p className="text-lg sm:text-xl text-covenant-muted font-light leading-relaxed">
-              Slide back and forth to examine the craftsmanship, alignment, and immaculate attention to detail that define our residential remodels.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ContentBlock>
 
       {/* ---------------------------------------------------- */}
       {/* BEFORE & AFTER SHOWCASE LIST                         */}
       {/* ---------------------------------------------------- */}
-      <section className="py-24 lg:py-32 bg-white space-y-24 divide-y divide-covenant-border/70">
-        {transformations.map((item, idx) => (
-          <div key={item.id} className="pt-20 first:pt-0">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-              <div className="text-left space-y-2 max-w-3xl">
-                <span className="text-xs font-bold tracking-widest text-covenant-gold-dark uppercase">
-                  CASE 0{idx + 1} • {item.category}
-                </span>
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-covenant-navy">
-                  {item.title}
-                </h2>
-                <p className="text-sm sm:text-base text-covenant-muted font-light leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Interactive Comparison Slider / Photo Carousel */}
-              {item.id === "case-bathroom-transformation" ? (
-                <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-3xl border border-covenant-border shadow-card">
-                  <MasterBathroomCaseShowcase />
+      <ContentBlock id="app-before-after-page-section-2" label="">
+        <section className="py-24 lg:py-32 bg-white space-y-24 divide-y divide-covenant-border/70">
+          {transformations.map((item, idx) => (
+            <div key={item.id} className="pt-20 first:pt-0">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+                <div className="text-left space-y-2 max-w-3xl">
+                  <span className="text-xs font-bold tracking-widest text-covenant-gold-dark uppercase">
+                    <ContentText id="app-before-after-page-text-4">
+                      {"CASE 0"}
+                    </ContentText>
+                    <ContentText id="app-before-after-page-text-5">
+                      {idx + 1}
+                    </ContentText>
+                    <ContentText id="app-before-after-page-text-6">
+                      {"• "}
+                    </ContentText>
+                    <ContentText id="app-before-after-page-text-7">
+                      {item.category}
+                    </ContentText>
+                  </span>
+                  <h2 className="font-serif text-3xl sm:text-4xl font-bold text-covenant-navy">
+                    <ContentText id="app-before-after-page-text-8">
+                      {item.title}
+                    </ContentText>
+                  </h2>
+                  <p className="text-sm sm:text-base text-covenant-muted font-light leading-relaxed">
+                    <ContentText id="app-before-after-page-text-9">
+                      {item.description}
+                    </ContentText>
+                  </p>
                 </div>
-              ) : (
-                <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-2xl border border-covenant-border shadow-card w-full">
-                  <BeforeAfterSlider
-                    singleImage={item.singleImage}
-                    beforeImage={item.beforeImage}
-                    afterImage={item.afterImage}
-                    beforeAlt={item.beforeAlt}
-                    afterAlt={item.afterAlt}
-                    aspectRatio="16/9"
-                  />
-                </div>
-              )}
 
-              {/* Highlights List */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-left">
-                {item.highlights.map((h, i) => (
-                  <div
-                    key={i}
-                    className="p-4 rounded-xl bg-covenant-offwhite border border-covenant-border/70 text-xs text-covenant-charcoal font-medium"
-                  >
-                    <span className="text-covenant-gold font-bold block mb-1">✓ Detail 0{i + 1}</span>
-                    <span className="text-covenant-muted font-light leading-relaxed">{h}</span>
-                  </div>
-                ))}
+                {/* Interactive Comparison Slider / Photo Carousel */}
+                <ContentText id="src-app-before-after-page-tsx-dynamic-2">
+                  {item.id === "case-bathroom-transformation" ? (
+                    <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-3xl border border-covenant-border shadow-card">
+                      <MasterBathroomCaseShowcase />
+                    </div>
+                  ) : (
+                    <div className="bg-covenant-offwhite p-4 sm:p-7 rounded-2xl border border-covenant-border shadow-card w-full">
+                      <BeforeAfterSlider
+                        singleImage={item.singleImage}
+                        beforeImage={item.beforeImage}
+                        afterImage={item.afterImage}
+                        beforeAlt={item.beforeAlt}
+                        afterAlt={item.afterAlt}
+                        aspectRatio="16/9"
+                      />
+                    </div>
+                  )}
+                </ContentText>
+
+                {/* Highlights List */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-left">
+                  {item.highlights.map((h, i) => (
+                    <div
+                      key={i}
+                      className="p-4 rounded-xl bg-covenant-offwhite border border-covenant-border/70 text-xs text-covenant-charcoal font-medium"
+                    >
+                      <span className="text-covenant-gold font-bold block mb-1">
+                        <ContentText id="app-before-after-page-text-10">
+                          {"✓ Detail 0"}
+                        </ContentText>
+                        <ContentText id="app-before-after-page-text-11">
+                          {i + 1}
+                        </ContentText>
+                      </span>
+                      <span className="text-covenant-muted font-light leading-relaxed">
+                        <ContentText id="app-before-after-page-text-12">
+                          {h}
+                        </ContentText>
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </section>
+          ))}
+        </section>
+      </ContentBlock>
 
       {/* Final CTA */}
-      <FinalCTA
-        title="Ready to Transform Your Home?"
-        subtitle="Call Covenant Construction & Painting to schedule your free estimate and consultation."
-      />
-    </div>
+      <ContentBlock
+        id="app-before-after-page-section-3"
+        label="Ready to Transform Your Home?"
+      >
+        <FinalCTA
+          title="Ready to Transform Your Home?"
+          subtitle="Call Covenant Construction & Painting to schedule your free estimate and consultation."
+        />
+      </ContentBlock>
+    </ContentPage>
   );
 }

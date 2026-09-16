@@ -1,3 +1,4 @@
+import { ContentText } from "@/components/cms/Content";
 import React from "react";
 import { HeartHandshake, ShieldCheck, Award } from "lucide-react";
 
@@ -6,7 +7,10 @@ interface TrustBadgesProps {
   className?: string;
 }
 
-export function TrustBadges({ theme = "light", className = "" }: TrustBadgesProps) {
+export function TrustBadges({
+  theme = "light",
+  className = "",
+}: TrustBadgesProps) {
   const isDark = theme === "dark";
 
   const badges = [
@@ -45,7 +49,9 @@ export function TrustBadges({ theme = "light", className = "" }: TrustBadgesProp
             >
               <div
                 className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${
-                  isDark ? "bg-white/10" : "bg-covenant-offwhite border border-covenant-border/80"
+                  isDark
+                    ? "bg-white/10"
+                    : "bg-covenant-offwhite border border-covenant-border/80"
                 }`}
               >
                 <Icon className="w-4 h-4 text-covenant-gold" />
@@ -56,14 +62,18 @@ export function TrustBadges({ theme = "light", className = "" }: TrustBadgesProp
                     isDark ? "text-white" : "text-covenant-navy"
                   }`}
                 >
-                  {badge.title}
+                  <ContentText id="components-TrustBadges-text-1">
+                    {badge.title}
+                  </ContentText>
                 </div>
                 <div
                   className={`text-[11px] font-normal tracking-wide ${
                     isDark ? "text-gray-400" : "text-covenant-muted"
                   }`}
                 >
-                  {badge.desc}
+                  <ContentText id="components-TrustBadges-text-2">
+                    {badge.desc}
+                  </ContentText>
                 </div>
               </div>
             </div>

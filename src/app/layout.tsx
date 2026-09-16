@@ -1,4 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import { readStore } from "@/lib/cms/store";
+import { authenticated } from "@/lib/cms/auth";
+import { ContentProvider, SiteChrome } from "@/components/cms/Content";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -11,7 +14,7 @@ export const viewport: Viewport = {
   themeColor: "#071F41",
 };
 
-export const metadata: Metadata = {
+const defaultMetadata: Metadata = {
   metadataBase: new URL("https://covenantconstructionpainting.com"),
   title: {
     default: "Covenant Construction & Painting | Premium Remodeling & Painting",
@@ -34,7 +37,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://covenantconstructionpainting.com",
     siteName: COMPANY_INFO.name,
-    title: "Covenant Construction & Painting | Built With Purpose. Finished With Excellence.",
+    title:
+      "Covenant Construction & Painting | Built With Purpose. Finished With Excellence.",
     description:
       "Thoughtful remodeling, quality craftsmanship, and professional painting designed to transform your home with confidence.",
     images: [
@@ -49,7 +53,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Covenant Construction & Painting",
-    description: "Thoughtful remodeling, quality craftsmanship, and professional painting.",
+    description:
+      "Thoughtful remodeling, quality craftsmanship, and professional painting.",
     images: [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&h=630&q=85",
     ],
@@ -69,18 +74,41 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export async function generateMetadata(): Promise<Metadata> {
+  const { settings } = (await readStore()).published;
+  return {
+    ...defaultMetadata,
+    title: { default: settings.title, template: `%s | ${settings.name}` },
+    description: settings.description,
+    authors: [{ name: settings.name }],
+    openGraph: {
+      ...defaultMetadata.openGraph,
+      title: settings.title,
+      description: settings.description,
+      siteName: settings.name,
+    },
+    twitter: {
+      ...defaultMetadata.twitter,
+      title: settings.title,
+      description: settings.description,
+    },
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const published = (await readStore()).published;
+  const preview = await authenticated();
   // Schema.org Structured Data (HomeAndConstructionBusiness) without fabricating fake data
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
-    name: COMPANY_INFO.name,
-    telephone: COMPANY_INFO.phone,
-    email: COMPANY_INFO.email,
+    name: published.settings.name,
+    telephone: published.settings.phone,
+    email: published.settings.email,
     url: "https://covenantconstructionpainting.com",
     priceRange: "$$$",
     hasOfferCatalog: {
@@ -92,7 +120,8 @@ export default function RootLayout({
           itemOffered: {
             "@type": "Service",
             name: "Kitchen Remodeling",
-            description: "Custom kitchen design, cabinetry, countertops, and functional reconfiguration.",
+            description:
+              "Custom kitchen design, cabinetry, countertops, and functional reconfiguration.",
           },
         },
         {
@@ -100,7 +129,8 @@ export default function RootLayout({
           itemOffered: {
             "@type": "Service",
             name: "Bathroom Remodeling",
-            description: "Master suites, walk-in showers, custom tilework, and spa bathroom renovations.",
+            description:
+              "Master suites, walk-in showers, custom tilework, and spa bathroom renovations.",
           },
         },
         {
@@ -108,7 +138,8 @@ export default function RootLayout({
           itemOffered: {
             "@type": "Service",
             name: "Professional Painting",
-            description: "Interior and exterior precision architectural painting and surface preparation.",
+            description:
+              "Interior and exterior precision architectural painting and surface preparation.",
           },
         },
       ],
@@ -120,16 +151,21 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans bg-white text-covenant-charcoal antialiased selection:bg-covenant-navy selection:text-covenant-gold">
-        <Header />
-        <main className="flex-grow pt-[84px] sm:pt-[92px]">
-          {children}
-        </main>
-        <Footer />
-        <MobileCallBar />
+        <ContentProvider initial={published} preview={preview}>
+          <SiteChrome
+            header={<Header />}
+            footer={<Footer />}
+            mobile={<MobileCallBar />}
+          >
+            {children}
+          </SiteChrome>
+        </ContentProvider>
       </body>
     </html>
   );

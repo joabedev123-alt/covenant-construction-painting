@@ -1,7 +1,8 @@
 "use client";
 
+import { ContentText } from "@/components/cms/Content";
 import React, { useState } from "react";
-import Image from "next/image";
+import { ContentImage as Image } from "@/components/cms/Content";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { KITCHEN_SHOWCASE_IMAGES } from "@/data/assets";
 
@@ -19,13 +20,17 @@ export function KitchenCardSlider({
   const handlePrev = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev === 0 ? KITCHEN_SHOWCASE_IMAGES.length - 1 : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? KITCHEN_SHOWCASE_IMAGES.length - 1 : prev - 1,
+    );
   };
 
   const handleNext = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev === KITCHEN_SHOWCASE_IMAGES.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === KITCHEN_SHOWCASE_IMAGES.length - 1 ? 0 : prev + 1,
+    );
   };
 
   const currentItem = KITCHEN_SHOWCASE_IMAGES[currentIndex];
@@ -57,7 +62,20 @@ export function KitchenCardSlider({
       {/* Badge com contador no topo */}
       <div className="absolute top-2.5 left-2.5 bg-covenant-navy/85 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-covenant-gold/40 flex items-center gap-1.5 shadow-sm">
         <Sparkles className="w-2.5 h-2.5 text-covenant-gold" />
-        <span>FOTO {currentIndex + 1} / {KITCHEN_SHOWCASE_IMAGES.length}</span>
+        <span>
+          <ContentText id="components-KitchenCardSlider-text-1">
+            {"FOTO "}
+          </ContentText>
+          <ContentText id="components-KitchenCardSlider-text-2">
+            {currentIndex + 1}
+          </ContentText>
+          <ContentText id="components-KitchenCardSlider-text-3">
+            {"/ "}
+          </ContentText>
+          <ContentText id="components-KitchenCardSlider-text-4">
+            {KITCHEN_SHOWCASE_IMAGES.length}
+          </ContentText>
+        </span>
       </div>
 
       {/* Botões de navegação Anterior / Próxima */}
@@ -82,7 +100,15 @@ export function KitchenCardSlider({
       {/* Legenda rápida da foto */}
       <div className="absolute bottom-6 inset-x-2 text-center pointer-events-none px-2">
         <span className="text-[11px] font-medium text-white/95 drop-shadow-md line-clamp-1">
-          {currentItem.tags[0]} • {currentItem.tags[1]}
+          <ContentText id="components-KitchenCardSlider-text-5">
+            {currentItem.tags[0]}
+          </ContentText>
+          <ContentText id="components-KitchenCardSlider-text-6">
+            {"• "}
+          </ContentText>
+          <ContentText id="components-KitchenCardSlider-text-7">
+            {currentItem.tags[1]}
+          </ContentText>
         </span>
       </div>
 

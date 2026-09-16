@@ -1,5 +1,11 @@
+import { ContentText } from "@/components/cms/Content";
 import React from "react";
-import { MessageSquare, ClipboardCheck, Hammer, CheckCircle2 } from "lucide-react";
+import {
+  MessageSquare,
+  ClipboardCheck,
+  Hammer,
+  CheckCircle2,
+} from "lucide-react";
 
 export function ProcessTimeline() {
   const steps = [
@@ -47,7 +53,9 @@ export function ProcessTimeline() {
                 {/* Step Number & Icon Header */}
                 <div className="flex items-center justify-between mb-5">
                   <span className="font-serif text-3xl font-bold text-covenant-gold-dark group-hover:text-covenant-gold transition-colors">
-                    {step.num}
+                    <ContentText id="components-ProcessTimeline-text-1">
+                      {step.num}
+                    </ContentText>
                   </span>
                   <div className="w-11 h-11 rounded-full bg-covenant-offwhite border border-covenant-border/70 flex items-center justify-center group-hover:bg-covenant-navy group-hover:border-covenant-navy transition-colors duration-300">
                     <Icon className="w-5 h-5 text-covenant-navy group-hover:text-covenant-gold transition-colors duration-300" />
@@ -55,17 +63,28 @@ export function ProcessTimeline() {
                 </div>
 
                 <h3 className="font-sans font-bold text-sm tracking-wider uppercase text-covenant-navy mb-2.5">
-                  {step.name}
+                  <ContentText id="components-ProcessTimeline-text-2">
+                    {step.name}
+                  </ContentText>
                 </h3>
                 <p className="text-sm text-covenant-muted leading-relaxed font-light">
-                  {step.desc}
+                  <ContentText id="components-ProcessTimeline-text-3">
+                    {step.desc}
+                  </ContentText>
                 </p>
               </div>
 
               {/* Bottom Subtle Indicator */}
               <div className="mt-6 pt-4 border-t border-covenant-border/50 flex items-center gap-2 text-[11px] font-semibold tracking-wider text-covenant-gold-dark uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-covenant-gold" />
-                <span>Step {step.num}</span>
+                <span>
+                  <ContentText id="components-ProcessTimeline-text-4">
+                    {"Step "}
+                  </ContentText>
+                  <ContentText id="components-ProcessTimeline-text-5">
+                    {step.num}
+                  </ContentText>
+                </span>
               </div>
             </div>
           );

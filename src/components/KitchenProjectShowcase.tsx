@@ -1,27 +1,40 @@
 "use client";
 
+import { ContentText } from "@/components/cms/Content";
 import React, { useState } from "react";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { ContentImage as Image } from "@/components/cms/Content";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Sparkles,
+  CheckCircle2,
+} from "lucide-react";
 import { KITCHEN_SHOWCASE_IMAGES, KitchenShowcaseItem } from "@/data/assets";
 
 interface KitchenProjectShowcaseProps {
   className?: string;
 }
 
-export function KitchenProjectShowcase({ className = "" }: KitchenProjectShowcaseProps) {
+export function KitchenProjectShowcase({
+  className = "",
+}: KitchenProjectShowcaseProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const currentItem: KitchenShowcaseItem = KITCHEN_SHOWCASE_IMAGES[currentIndex];
+  const currentItem: KitchenShowcaseItem =
+    KITCHEN_SHOWCASE_IMAGES[currentIndex];
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? KITCHEN_SHOWCASE_IMAGES.length - 1 : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? KITCHEN_SHOWCASE_IMAGES.length - 1 : prev - 1,
+    );
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev === KITCHEN_SHOWCASE_IMAGES.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === KITCHEN_SHOWCASE_IMAGES.length - 1 ? 0 : prev + 1,
+    );
   };
 
   const minSwipeDistance = 45;
@@ -46,19 +59,42 @@ export function KitchenProjectShowcase({ className = "" }: KitchenProjectShowcas
         <div>
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-covenant-gold-dark uppercase">
             <Sparkles className="w-3.5 h-3.5 text-covenant-gold" />
-            <span>PORTFÓLIO DE COZINHA • PROJETO RESIDENCIAL DE LUXO</span>
+            <span>
+              <ContentText id="components-KitchenProjectShowcase-text-1">
+                {"PORTFÓLIO DE COZINHA • PROJETO RESIDENCIAL DE LUXO"}
+              </ContentText>
+            </span>
           </div>
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-covenant-navy mt-1">
-            Gourmet Kitchen Showcase
+            <ContentText id="components-KitchenProjectShowcase-text-2">
+              {"Gourmet Kitchen Showcase"}
+            </ContentText>
           </h3>
           <p className="text-xs sm:text-sm text-covenant-muted">
-            5 perspectivas completas da reforma: bancadas de quartzo, armários planejados e layout aberto.
+            <ContentText id="components-KitchenProjectShowcase-text-3">
+              {
+                "5 perspectivas completas da reforma: bancadas de quartzo, armários planejados e layout aberto."
+              }
+            </ContentText>
           </p>
         </div>
 
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-covenant-navy/5 border border-covenant-border text-xs font-bold text-covenant-navy self-start sm:self-auto">
           <span className="w-2 h-2 rounded-full bg-covenant-gold" />
-          <span>FOTO {currentIndex + 1} DE {KITCHEN_SHOWCASE_IMAGES.length}</span>
+          <span>
+            <ContentText id="components-KitchenProjectShowcase-text-4">
+              {"FOTO "}
+            </ContentText>
+            <ContentText id="components-KitchenProjectShowcase-text-5">
+              {currentIndex + 1}
+            </ContentText>
+            <ContentText id="components-KitchenProjectShowcase-text-6">
+              {"DE "}
+            </ContentText>
+            <ContentText id="components-KitchenProjectShowcase-text-7">
+              {KITCHEN_SHOWCASE_IMAGES.length}
+            </ContentText>
+          </span>
         </div>
       </div>
 
@@ -103,7 +139,9 @@ export function KitchenProjectShowcase({ className = "" }: KitchenProjectShowcas
 
         {/* Dica para mobile de deslizar */}
         <div className="absolute top-3 right-3 sm:hidden z-10 bg-black/60 backdrop-blur-sm text-white/80 text-[10px] px-2 py-0.5 rounded-full pointer-events-none">
-          Deslize ⇄
+          <ContentText id="components-KitchenProjectShowcase-text-8">
+            {"Deslize ⇄"}
+          </ContentText>
         </div>
 
         {/* Legenda na base */}
@@ -115,16 +153,22 @@ export function KitchenProjectShowcase({ className = "" }: KitchenProjectShowcas
                 className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold bg-white/15 backdrop-blur-md text-covenant-gold-light border border-white/15 px-2 sm:px-2.5 py-0.5 rounded-md"
               >
                 <CheckCircle2 className="w-3 h-3 text-covenant-gold" />
-                {tag}
+                <ContentText id="components-KitchenProjectShowcase-text-9">
+                  {tag}
+                </ContentText>
               </span>
             ))}
           </div>
 
           <h4 className="font-serif text-lg sm:text-2xl lg:text-3xl font-bold tracking-tight text-white leading-snug">
-            {currentItem.title}
+            <ContentText id="components-KitchenProjectShowcase-text-10">
+              {currentItem.title}
+            </ContentText>
           </h4>
           <p className="text-xs sm:text-sm text-gray-200 font-light max-w-2xl leading-relaxed hidden sm:block">
-            {currentItem.description}
+            <ContentText id="components-KitchenProjectShowcase-text-11">
+              {currentItem.description}
+            </ContentText>
           </p>
         </div>
       </div>
@@ -133,9 +177,15 @@ export function KitchenProjectShowcase({ className = "" }: KitchenProjectShowcas
       <div className="space-y-2 text-left">
         <div className="flex items-center justify-between px-1 text-xs">
           <span className="font-bold text-covenant-navy uppercase tracking-wider">
-            Explore Todos os Ângulos da Cozinha:
+            <ContentText id="components-KitchenProjectShowcase-text-12">
+              {"Explore Todos os Ângulos da Cozinha:"}
+            </ContentText>
           </span>
-          <span className="text-covenant-muted text-[11px]">Toque em qualquer foto</span>
+          <span className="text-covenant-muted text-[11px]">
+            <ContentText id="components-KitchenProjectShowcase-text-13">
+              {"Toque em qualquer foto"}
+            </ContentText>
+          </span>
         </div>
 
         <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none snap-x sm:grid sm:grid-cols-5 sm:overflow-visible">
@@ -162,11 +212,18 @@ export function KitchenProjectShowcase({ className = "" }: KitchenProjectShowcas
                 />
                 <span
                   className={`absolute inset-0 transition-colors ${
-                    isActive ? "bg-covenant-gold/15" : "bg-black/20 group-hover:bg-transparent"
+                    isActive
+                      ? "bg-covenant-gold/15"
+                      : "bg-black/20 group-hover:bg-transparent"
                   }`}
                 />
                 <span className="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] font-bold px-1.5 py-0.5 rounded backdrop-blur-sm">
-                  #{idx + 1}
+                  <ContentText id="components-KitchenProjectShowcase-text-14">
+                    {"#"}
+                  </ContentText>
+                  <ContentText id="components-KitchenProjectShowcase-text-15">
+                    {idx + 1}
+                  </ContentText>
                 </span>
               </button>
             );

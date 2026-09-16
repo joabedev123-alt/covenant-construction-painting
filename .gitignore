@@ -35,3 +35,11 @@ next-env.d.ts
 
 # Repositório aninhado (clone local apenas para servidor de dev)
 /covenant-construction-painting/
+
+# CMS credentials, content and uploaded media (back up separately)
+/storage/
+/.next-cms-test/
+/test-results/
+/playwright-report/
+
+/.next-build-check/

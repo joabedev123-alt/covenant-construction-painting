@@ -1,5 +1,6 @@
+import { ContentAnchor, ContentText } from "@/components/cms/Content";
 import React from "react";
-import Image from "next/image";
+import { ContentImage as Image } from "@/components/cms/Content";
 import { Phone, Mail, ArrowRight } from "lucide-react";
 import { COMPANY_INFO } from "@/data/assets";
 
@@ -15,7 +16,9 @@ export function FinalCTA({
   className = "",
 }: FinalCTAProps) {
   return (
-    <section className={`relative py-24 sm:py-32 overflow-hidden bg-covenant-navy text-white ${className}`}>
+    <section
+      className={`relative py-24 sm:py-32 overflow-hidden bg-covenant-navy text-white ${className}`}
+    >
       {/* Background Architectural Photo with Navy Overlay */}
       <div className="absolute inset-0 w-full h-full pointer-events-none -z-0">
         <Image
@@ -32,42 +35,63 @@ export function FinalCTA({
         {/* Small Gold Eyebrow */}
         <div className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.24em] text-covenant-gold-light uppercase">
           <span className="w-6 h-px bg-covenant-gold" />
-          <span>START YOUR CONVERSATION</span>
+          <span>
+            <ContentText id="components-FinalCTA-text-1">
+              {"START YOUR CONVERSATION"}
+            </ContentText>
+          </span>
           <span className="w-6 h-px bg-covenant-gold" />
         </div>
 
         {/* Big Stately Headline */}
         <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-          {title}
+          <ContentText id="components-FinalCTA-text-2">{title}</ContentText>
         </h2>
 
         <p className="text-base sm:text-xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
-          {subtitle}
+          <ContentText id="components-FinalCTA-text-3">{subtitle}</ContentText>
         </p>
 
         {/* Two CTAs: Primary Phone & Secondary Email */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <a
+          <ContentAnchor
+            cmsId="components-FinalCTA-link-1"
             href={COMPANY_INFO.phoneHref}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-covenant-gold hover:bg-covenant-gold-light text-covenant-navy font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-md shadow-gold hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-[0.98]"
           >
             <Phone className="w-4 h-4 text-covenant-navy fill-current" />
-            <span>CALL {COMPANY_INFO.phoneDisplay}</span>
-          </a>
+            <span>
+              <ContentText id="components-FinalCTA-text-4">
+                {"CALL "}
+              </ContentText>
+              <ContentText id="components-FinalCTA-text-5">
+                {COMPANY_INFO.phoneDisplay}
+              </ContentText>
+            </span>
+          </ContentAnchor>
 
-          <a
+          <ContentAnchor
+            cmsId="components-FinalCTA-link-2"
             href={`mailto:${COMPANY_INFO.email}?subject=Project%20Inquiry%20-%20Covenant%20Construction%20%26%20Painting`}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 text-white font-medium text-sm uppercase tracking-wider px-7 py-4 rounded-md border border-white/20 hover:border-white/40 backdrop-blur-sm transition-all duration-200 cursor-pointer"
           >
             <Mail className="w-4 h-4 text-covenant-gold-light" />
-            <span>SEND AN EMAIL</span>
+            <span>
+              <ContentText id="components-FinalCTA-text-6">
+                {"SEND AN EMAIL"}
+              </ContentText>
+            </span>
             <ArrowRight className="w-3.5 h-3.5 text-gray-300" />
-          </a>
+          </ContentAnchor>
         </div>
 
         {/* Small reassurance note */}
         <p className="text-xs text-gray-400 pt-2 font-light">
-          No obligation consultation. We answer directly and respect your time.
+          <ContentText id="components-FinalCTA-text-7">
+            {
+              "No obligation consultation. We answer directly and respect your time."
+            }
+          </ContentText>
         </p>
       </div>
     </section>
