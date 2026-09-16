@@ -458,8 +458,8 @@ export default function HomePage() {
               <div className="lg:col-span-5">
                 <div className="relative aspect-[3/4] max-w-md mx-auto lg:max-w-none w-full rounded-2xl overflow-hidden shadow-elevated border border-covenant-border bg-covenant-navy/5">
                   <Image
-                    src={SITE_ASSETS.featureProject.url}
-                    alt={SITE_ASSETS.featureProject.alt}
+                    src="/images/PHOTO-2026-09-16-07-30-39.jpg"
+                    alt="Residential facade and balconies illuminated at night, with the construction team outside"
                     fill
                     sizes="(max-width: 1024px) 100vw, 45vw"
                     className="object-cover object-center"

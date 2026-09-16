@@ -10,18 +10,19 @@ import {
   ContentTextarea,
 } from "@/components/cms/Content";
 import React, { useState } from "react";
+import { EstimateMessageDraft } from "@/components/EstimateMessageDraft";
+import { useEstimateRequest } from "@/hooks/useEstimateRequest";
 import {
   Phone,
   Mail,
   Send,
-  CheckCircle2,
   ShieldCheck,
   ArrowRight,
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/assets";
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const { submitted, sending, error, submit, draft, edit } = useEstimateRequest("contact");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,9 +31,12 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    await submit(
+      formData,
+      String(new FormData(e.currentTarget).get("website") || ""),
+    );
   };
 
   return (
@@ -215,62 +219,54 @@ export default function ContactPage() {
                     <p className="text-sm text-covenant-muted font-light leading-relaxed">
                       <ContentText id="app-contact-page-text-19">
                         {
-                          "Prefer to write? Complete this form and our team will review your project details and follow up promptly."
+                          "Complete this form to prepare your message, then send it from your text messaging or email app."
                         }
                       </ContentText>
                     </p>
                   </div>
 
                   <ContentText id="src-app-contact-page-tsx-dynamic-1">
-                    {submitted ? (
-                      <div className="py-12 text-center space-y-5">
-                        <div className="w-16 h-16 rounded-full bg-green-50 text-green-600 mx-auto flex items-center justify-center border border-green-200">
-                          <CheckCircle2 className="w-9 h-9" />
-                        </div>
-                        <h3 className="font-serif text-2xl font-bold text-covenant-navy">
-                          <ContentText id="app-contact-page-text-20">
-                            {"Inquiry Received Successfully"}
-                          </ContentText>
-                        </h3>
-                        <p className="text-sm text-covenant-muted max-w-md mx-auto font-light leading-relaxed">
-                          <ContentText id="app-contact-page-text-21">
-                            {
-                              "Thank you for contacting Covenant Construction & Painting. We will review your request and get in touch with you shortly."
-                            }
-                          </ContentText>
-                        </p>
-                        <div className="pt-3">
-                          <ContentAnchor
-                            cmsId="app-contact-page-link-3"
-                            href={COMPANY_INFO.phoneHref}
-                            className="inline-flex items-center gap-2 bg-covenant-navy text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg shadow-sm"
-                          >
-                            <Phone className="w-4 h-4 text-covenant-gold" />
-                            <span>
-                              <ContentText id="app-contact-page-text-22">
-                                {"Call "}
-                              </ContentText>
-                              <ContentText id="app-contact-page-text-23">
-                                {COMPANY_INFO.phoneDisplay}
-                              </ContentText>
-                              <ContentText id="app-contact-page-text-24">
-                                {"For Immediate Assistance"}
-                              </ContentText>
-                            </span>
-                          </ContentAnchor>
-                        </div>
-                      </div>
+                    {submitted && draft ? (
+                      <EstimateMessageDraft draft={draft} onEdit={edit} />
                     ) : (
                       <form onSubmit={handleSubmit} className="space-y-5">
+                        <div className="sr-only" aria-hidden="true">
+                          <label htmlFor="contact-website">
+                            Leave this field empty
+                          </label>
+                          <input
+                            id="contact-website"
+                            type="text"
+                            name="website"
+                            tabIndex={-1}
+                            autoComplete="off"
+                          />
+                        </div>
+                        {error && (
+                          <p
+                            role="alert"
+                            className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3"
+                          >
+                            {error}
+                          </p>
+                        )}
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
-                            <label className="block text-xs font-semibold text-covenant-navy mb-1.5">
+                            <label
+                              htmlFor="contact-name"
+                              className="block text-xs font-semibold text-covenant-navy mb-1.5"
+                            >
                               <ContentText id="app-contact-page-text-25">
                                 {"Full Name *"}
                               </ContentText>
                             </label>
                             <ContentInput
                               cmsId="app-contact-page-attr-1"
+                              id="contact-name"
+                              name="name"
+                              disabled={sending}
+                              maxLength={100}
                               type="text"
                               required
                               placeholder="Jane Doe"
@@ -286,13 +282,20 @@ export default function ContactPage() {
                           </div>
 
                           <div>
-                            <label className="block text-xs font-semibold text-covenant-navy mb-1.5">
+                            <label
+                              htmlFor="contact-phone"
+                              className="block text-xs font-semibold text-covenant-navy mb-1.5"
+                            >
                               <ContentText id="app-contact-page-text-26">
                                 {"Phone Number *"}
                               </ContentText>
                             </label>
                             <ContentInput
                               cmsId="app-contact-page-attr-2"
+                              id="contact-phone"
+                              name="phone"
+                              disabled={sending}
+                              maxLength={30}
                               type="tel"
                               required
                               placeholder="(508) 000-0000"
@@ -309,13 +312,20 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold text-covenant-navy mb-1.5">
+                          <label
+                            htmlFor="contact-email"
+                            className="block text-xs font-semibold text-covenant-navy mb-1.5"
+                          >
                             <ContentText id="app-contact-page-text-27">
                               {"Email Address *"}
                             </ContentText>
                           </label>
                           <ContentInput
                             cmsId="app-contact-page-attr-3"
+                            id="contact-email"
+                            name="email"
+                            disabled={sending}
+                            maxLength={254}
                             type="email"
                             required
                             placeholder="jane@example.com"
@@ -331,12 +341,19 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold text-covenant-navy mb-1.5">
+                          <label
+                            htmlFor="contact-projectType"
+                            className="block text-xs font-semibold text-covenant-navy mb-1.5"
+                          >
                             <ContentText id="app-contact-page-text-28">
                               {"Project Type *"}
                             </ContentText>
                           </label>
                           <select
+                            id="contact-projectType"
+                            name="projectType"
+                            required
+                            disabled={sending}
                             value={formData.projectType}
                             onChange={(e) =>
                               setFormData({
@@ -374,13 +391,20 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold text-covenant-navy mb-1.5">
+                          <label
+                            htmlFor="contact-message"
+                            className="block text-xs font-semibold text-covenant-navy mb-1.5"
+                          >
                             <ContentText id="app-contact-page-text-29">
                               {"Project Message"}
                             </ContentText>
                           </label>
                           <ContentTextarea
                             cmsId="app-contact-page-attr-8"
+                            id="contact-message"
+                            name="message"
+                            disabled={sending}
+                            maxLength={1000}
                             rows={4}
                             placeholder="Tell us a little about your space, goals, or ideal timing..."
                             value={formData.message}
@@ -396,12 +420,14 @@ export default function ContactPage() {
 
                         <button
                           type="submit"
+                          disabled={sending}
+                          aria-busy={sending}
                           className="w-full inline-flex items-center justify-center gap-2.5 bg-covenant-navy hover:bg-covenant-navy-light text-white font-bold text-xs uppercase tracking-widest py-4 px-6 rounded-lg shadow-card hover:shadow-elevated transition-all duration-200 cursor-pointer border border-covenant-gold/40 hover:border-covenant-gold"
                         >
                           <Send className="w-4 h-4 text-covenant-gold" />
                           <span>
                             <ContentText id="app-contact-page-text-30">
-                              {"SEND REQUEST"}
+                              {sending ? "OPENING…" : "CONTINUE TO TEXT MESSAGE"}
                             </ContentText>
                           </span>
                         </button>
@@ -411,7 +437,7 @@ export default function ContactPage() {
                           <span>
                             <ContentText id="app-contact-page-text-31">
                               {
-                                "No spam • We respect your privacy and communicate directly"
+                                "Opens your messaging app • Review and tap Send there"
                               }
                             </ContentText>
                           </span>

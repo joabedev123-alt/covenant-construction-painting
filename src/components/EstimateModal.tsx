@@ -8,7 +8,9 @@ import {
   ContentTextarea,
 } from "@/components/cms/Content";
 import React, { useState } from "react";
-import { X, Phone, Send, CheckCircle2, ShieldCheck } from "lucide-react";
+import { EstimateMessageDraft } from "@/components/EstimateMessageDraft";
+import { useEstimateRequest } from "@/hooks/useEstimateRequest";
+import { X, Phone, Send, ShieldCheck } from "lucide-react";
 import { COMPANY_INFO } from "@/data/assets";
 
 interface EstimateModalProps {
@@ -17,7 +19,8 @@ interface EstimateModalProps {
 }
 
 export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
-  const [submitted, setSubmitted] = useState(false);
+  const { submitted, sending, error, submit, draft, edit } =
+    useEstimateRequest("estimate-modal");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -28,10 +31,12 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Simulate prompt dispatch / ready for backend API or mailto
-    setSubmitted(true);
+    await submit(
+      formData,
+      String(new FormData(e.currentTarget).get("website") || ""),
+    );
   };
 
   return (
@@ -88,49 +93,45 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
         </div>
 
         <ContentText id="src-components-EstimateModal-tsx-dynamic-1">
-          {submitted ? (
-            <div className="py-8 text-center space-y-4">
-              <div className="w-14 h-14 rounded-full bg-green-50 text-green-600 mx-auto flex items-center justify-center border border-green-200">
-                <CheckCircle2 className="w-8 h-8" />
-              </div>
-              <h4 className="font-serif text-xl font-bold text-covenant-navy">
-                <ContentText id="components-EstimateModal-text-7">
-                  {"Thank You for Reaching Out"}
-                </ContentText>
-              </h4>
-              <p className="text-sm text-covenant-muted max-w-sm mx-auto font-light leading-relaxed">
-                <ContentText id="components-EstimateModal-text-8">
-                  {
-                    "We have received your estimate inquiry. Our team will review the details and contact you shortly."
-                  }
-                </ContentText>
-              </p>
-              <div className="pt-2">
-                <ContentAnchor
-                  cmsId="components-EstimateModal-link-2"
-                  href={COMPANY_INFO.phoneHref}
-                  className="inline-flex items-center gap-2 bg-covenant-navy text-white text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-lg shadow-sm"
-                >
-                  <Phone className="w-3.5 h-3.5 text-covenant-gold" />
-                  <span>
-                    <ContentText id="components-EstimateModal-text-9">
-                      {"Call Us Direct"}
-                    </ContentText>
-                  </span>
-                </ContentAnchor>
-              </div>
-            </div>
-          ) : (
+          {submitted && draft ? (
+                      <EstimateMessageDraft draft={draft} onEdit={edit} />
+                    ) : (
             <form onSubmit={handleSubmit} className="space-y-4 text-left">
+              <div className="sr-only" aria-hidden="true">
+                <label htmlFor="estimate-website">Leave this field empty</label>
+                <input
+                  id="estimate-website"
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+              {error && (
+                <p
+                  role="alert"
+                  className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3"
+                >
+                  {error}
+                </p>
+              )}
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-xs font-semibold text-covenant-navy mb-1">
+                  <label
+                    htmlFor="estimate-name"
+                    className="block text-xs font-semibold text-covenant-navy mb-1"
+                  >
                     <ContentText id="components-EstimateModal-text-10">
                       {"Your Name *"}
                     </ContentText>
                   </label>
                   <ContentInput
                     cmsId="components-EstimateModal-attr-1"
+                    id="estimate-name"
+                    name="name"
+                    disabled={sending}
+                    maxLength={100}
                     type="text"
                     required
                     placeholder="John Smith"
@@ -143,13 +144,20 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-covenant-navy mb-1">
+                  <label
+                    htmlFor="estimate-phone"
+                    className="block text-xs font-semibold text-covenant-navy mb-1"
+                  >
                     <ContentText id="components-EstimateModal-text-11">
                       {"Phone Number *"}
                     </ContentText>
                   </label>
                   <ContentInput
                     cmsId="components-EstimateModal-attr-2"
+                    id="estimate-phone"
+                    name="phone"
+                    disabled={sending}
+                    maxLength={30}
                     type="tel"
                     required
                     placeholder="(508) 000-0000"
@@ -163,13 +171,20 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-covenant-navy mb-1">
+                <label
+                  htmlFor="estimate-email"
+                  className="block text-xs font-semibold text-covenant-navy mb-1"
+                >
                   <ContentText id="components-EstimateModal-text-12">
                     {"Email Address *"}
                   </ContentText>
                 </label>
                 <ContentInput
                   cmsId="components-EstimateModal-attr-3"
+                  id="estimate-email"
+                  name="email"
+                  disabled={sending}
+                  maxLength={254}
                   type="email"
                   required
                   placeholder="john@example.com"
@@ -182,12 +197,19 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-covenant-navy mb-1">
+                <label
+                  htmlFor="estimate-projectType"
+                  className="block text-xs font-semibold text-covenant-navy mb-1"
+                >
                   <ContentText id="components-EstimateModal-text-13">
                     {"Project Category"}
                   </ContentText>
                 </label>
                 <select
+                  id="estimate-projectType"
+                  name="projectType"
+                  required
+                  disabled={sending}
                   value={formData.projectType}
                   onChange={(e) =>
                     setFormData({ ...formData, projectType: e.target.value })
@@ -228,13 +250,20 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-covenant-navy mb-1">
+                <label
+                  htmlFor="estimate-message"
+                  className="block text-xs font-semibold text-covenant-navy mb-1"
+                >
                   <ContentText id="components-EstimateModal-text-14">
                     {"Project Details"}
                   </ContentText>
                 </label>
                 <ContentTextarea
                   cmsId="components-EstimateModal-attr-9"
+                  id="estimate-message"
+                  name="message"
+                  disabled={sending}
+                  maxLength={1000}
                   rows={3}
                   placeholder="Briefly describe what you would like to remodel or paint..."
                   value={formData.message}
@@ -247,12 +276,14 @@ export function EstimateModal({ isOpen, onClose }: EstimateModalProps) {
 
               <button
                 type="submit"
+                disabled={sending}
+                aria-busy={sending}
                 className="w-full inline-flex items-center justify-center gap-2 bg-covenant-navy hover:bg-covenant-navy-light text-white font-bold text-xs uppercase tracking-wider py-3.5 px-4 rounded-lg shadow-sm transition-all duration-200 cursor-pointer border border-covenant-gold/40"
               >
                 <Send className="w-3.5 h-3.5 text-covenant-gold" />
                 <span>
                   <ContentText id="components-EstimateModal-text-15">
-                    {"Submit Estimate Request"}
+                    {sending ? "Opening…" : "Continue to Text Message"}
                   </ContentText>
                 </span>
               </button>

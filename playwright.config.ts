@@ -19,6 +19,10 @@ export default defineConfig({
     timeout: 120000,
     env: {
       NEXT_DIST_DIR: ".next-cms-test",
+      TWILIO_ACCOUNT_SID: "",
+      TWILIO_AUTH_TOKEN: "",
+      TWILIO_MESSAGING_SERVICE_SID: "",
+      TWILIO_FROM_NUMBER: "",
       CMS_DATA_DIR: mkdtempSync(path.join(tmpdir(), "covenant-cms-test-")),
     },
   },

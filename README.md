@@ -86,7 +86,7 @@ A implementação atual requer **um servidor Node.js com uma única instância e
 
 Para configurar o primeiro acesso em produção, defina `ADMIN_SETUP_TOKEN` como um segredo aleatório no ambiente do servidor. O formulário inicial exigirá esse token junto com a nova senha. O primeiro acesso sem token é permitido somente em desenvolvimento no endereço localhost. Use HTTPS em produção, pois o cookie de sessão é Secure.
 
-O editor mantém os componentes e as interações existentes. Novas seções usam o modelo descrito acima; criar rotas novas, alterar estruturas de layout específicas e adicionar novas funcionalidades ainda exige desenvolvimento. O formulário de orçamento existente continua com o comportamento original e não envia e-mails nem grava solicitações.
+O editor mantém os componentes e as interações existentes. Novas seções usam o modelo descrito acima; criar rotas novas, alterar estruturas de layout específicas e adicionar novas funcionalidades ainda exige desenvolvimento. Os formulários de orçamento preparam uma mensagem para o visitante enviar pelo aplicativo de SMS ou e-mail, conforme descrito abaixo.
 
 ### Validação do CMS
 
@@ -121,3 +121,20 @@ Em um VPS com uma única instância, configure `CMS_DATA_DIR` apontando para uma
 Nos planos gerenciados, confirme se existe uma pasta gravável e preservada entre implantações. Caso não exista, a camada atual de arquivos deve ser adaptada para banco de dados e armazenamento permanente de imagens antes de colocar o painel em produção. A Hostinger documenta a [conexão de MySQL a aplicações Node.js](https://www.hostinger.com/support/connecting-a-hostinger-mysql-database-to-a-node-js-application/); a configuração depende da conta e do plano.
 
 Nenhuma implantação ou conexão à conta Hostinger foi realizada.
+
+
+## Solicitações de orçamento pelo celular do cliente
+
+A página `/contact` e o componente `EstimateModal` montam uma mensagem com nome, telefone, e-mail, tipo de projeto e descrição. Ao continuar, o site apresenta o texto e links para abrir o aplicativo de mensagens com o destinatário **+15084056918** e o texto preenchido. O cliente precisa revisar e tocar em **Enviar** no aplicativo. O site não confirma o envio nem a entrega.
+
+Não é necessário configurar Twilio para esse fluxo. O formulário não chama `/api/estimates` e não arquiva os dados no servidor. Os dados permanecem na aba para editar ou copiar. Também há um link `mailto:` para **damascenoluiz31@gmail.com**, com assunto e corpo preenchidos.
+
+O suporte à abertura e ao preenchimento depende do celular e do aplicativo. O link usa `?body=` normalmente e a variante `&body=` para iPhone/iPad. A página mantém o texto disponível para copiar quando o aplicativo não preencher a mensagem ou não estiver instalado, inclusive no computador. É necessário validar a abertura em aparelhos Android e iPhone reais; os testes no Chrome verificam os links e os dados, não o envio pelo celular.
+
+A integração anterior com Twilio permanece disponível no código da API, mas não é utilizada pelos formulários. Suas variáveis de ambiente podem ficar vazias.
+
+```bash
+npm run test:estimates
+```
+
+Os testes verificam os links, caracteres especiais, todos os dados preenchidos, edição e ausência de chamadas à API pelo formulário. Também mantêm a validação isolada da API anterior sem enviar SMS real.

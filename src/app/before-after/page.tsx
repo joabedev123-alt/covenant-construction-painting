@@ -58,9 +58,9 @@ export default function BeforeAfterPage() {
       title: "Transitional Kitchen Layout Reconfiguration",
       category: "KITCHEN TRANSFORMATION",
       beforeImage: SITE_ASSETS.kitchenBefore.url,
-      afterImage: SITE_ASSETS.kitchenAfter.url,
+      afterImage: "/images/PHOTO-2026-09-11-12-20-24.jpg",
       beforeAlt: "Enclosed, dark kitchen before remodel",
-      afterAlt: "Bright open-concept gourmet kitchen after remodel",
+      afterAlt: "Renovated kitchen with white cabinets and subway tile backsplash",
       description:
         "This project opened an enclosed, dark floor plan into an expansive culinary kitchen complete with a massive quartz island, custom inset cabinets, and architectural task illumination.",
       highlights: [
@@ -74,8 +74,8 @@ export default function BeforeAfterPage() {
       id: "case-exterior-transformation",
       title: "Exterior Facade Painting & Restoration",
       category: "EXTERIOR TRANSFORMATION",
-      beforeImage: SITE_ASSETS.exteriorBefore.url,
-      afterImage: SITE_ASSETS.exteriorAfter.url,
+      beforeImage: SITE_ASSETS.exteriorAfter.url,
+      afterImage: SITE_ASSETS.exteriorBefore.url,
       beforeAlt: "Building exterior facade before painting",
       afterAlt:
         "Building exterior facade after complete painting and restoration",
